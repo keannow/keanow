@@ -12,6 +12,7 @@ body{
   color:white;
 }
 
+/* NAV */
 nav{
   display:flex;
   justify-content:space-between;
@@ -36,6 +37,7 @@ nav a:hover{
   color:white;
 }
 
+/* HERO */
 .hero{
   text-align:center;
   padding:60px 20px;
@@ -66,12 +68,14 @@ nav a:hover{
   background:#1ebe5d;
 }
 
+/* TITLE */
 .title{
   text-align:center;
   margin:30px 0 10px;
   color:#ccc;
 }
 
+/* GRID */
 .container{
   display:flex;
   flex-wrap:wrap;
@@ -80,6 +84,7 @@ nav a:hover{
   padding:20px;
 }
 
+/* CARD */
 .card{
   width:240px;
   background:#161616;
@@ -92,6 +97,12 @@ nav a:hover{
 .card:hover{
   transform:translateY(-5px);
   background:#1f1f1f;
+}
+
+.price{
+  color:#00e676;
+  font-weight:bold;
+  margin:10px 0;
 }
 
 .note{
@@ -125,6 +136,7 @@ select{
   background:#00e676;
 }
 
+/* FOOTER */
 footer{
   text-align:center;
   padding:20px;
@@ -148,7 +160,7 @@ footer{
 
 <div class="hero">
   <h1>KEANN MARKET</h1>
-  <p>Digital Services • Bot WhatsApp • Nokos • Web Tools</p>
+  <p>Digital Services • Bot WhatsApp • Nokos • APK Tools</p>
 
   <a class="cta" href="https://wa.me/628125895306" target="_blank">
     💬 Chat Admin WhatsApp
@@ -165,41 +177,13 @@ footer{
     <div class="note">Pilih paket bot</div>
 
     <select id="botSelect">
-      <option value="Bot WhatsApp 1 Hari - 2K">1 Hari - 2K</option>
-      <option value="Bot WhatsApp 7 Hari - 5K">7 Hari - 5K</option>
-      <option value="Bot WhatsApp 30 Hari - 8K">30 Hari - 8K</option>
-      <option value="Bot WhatsApp Permanen - 15K">Permanen - 15K</option>
+      <option value="Bot WA 1 Hari - 2K">1 Hari - 2K</option>
+      <option value="Bot WA 7 Hari - 5K">7 Hari - 5K</option>
+      <option value="Bot WA 30 Hari - 8K">30 Hari - 8K</option>
+      <option value="Bot WA Permanen - 15K">Permanen - 15K</option>
     </select>
 
     <button class="btn" onclick="orderBot()">ORDER</button>
-  </div>
-
-  <!-- NOKOS -->
-  <div class="card">
-    <h3>📱 Nokos WhatsApp</h3>
-    <div class="note">Nomor virtual aktif</div>
-    <button class="btn" onclick="order('Nokos Indo/Luar')">ORDER</button>
-  </div>
-
-  <!-- SUNTIK -->
-  <div class="card">
-    <h3>⚙️ Web Suntik</h3>
-    <div class="note">Panel digital service</div>
-    <button class="btn" onclick="order('Web Suntik bang')">ORDER</button>
-  </div>
-
-  <!-- JASAPOST -->
-  <div class="card">
-    <h3>📡 Jasapost</h3>
-    <div class="note">Promo gratis</div>
-    <button class="btn" onclick="order('Jasapost akun bang')">ORDER</button>
-  </div>
-
-  <!-- WEB NOKOS -->
-  <div class="card">
-    <h3>📱 Web Nokos</h3>
-    <div class="note">Akses sistem nokos</div>
-    <button class="btn" onclick="order('Web Nokos bang')">ORDER</button>
   </div>
 
   <!-- DRIP -->
@@ -208,14 +192,56 @@ footer{
     <div class="note">Pilih durasi key</div>
 
     <select id="dripSelect">
-      <option value="DRIP CLIENT KEY 1 Hari - 25K">1 Hari - 25K</option>
-      <option value="DRIP CLIENT KEY 3 Hari - 40K">3 Hari - 40K</option>
-      <option value="DRIP CLIENT KEY 7 Hari - 65K">7 Hari - 65K</option>
-      <option value="DRIP CLIENT KEY 15 Hari - 90K">15 Hari - 90K</option>
-      <option value="DRIP CLIENT KEY 30 Hari - 140K">30 Hari - 140K</option>
+      <option value="DRIP 1 Hari - 25K">1 Hari - 25K</option>
+      <option value="DRIP 3 Hari - 40K">3 Hari - 40K</option>
+      <option value="DRIP 7 Hari - 65K">7 Hari - 65K</option>
+      <option value="DRIP 15 Hari - 90K">15 Hari - 90K</option>
+      <option value="DRIP 30 Hari - 140K">30 Hari - 140K</option>
     </select>
 
     <button class="btn" onclick="orderDrip()">ORDER</button>
+  </div>
+
+  <!-- APK / MOBI -->
+  <div class="card">
+    <h3>📦 APK / MOBI</h3>
+    <div class="note">Pilih layanan APK</div>
+
+    <select id="apkSelect">
+      <option value="APK MOBI PERMANEN - 10K">APK MOBI PERMANEN - 10K</option>
+      <option value="SET MOBI FF - 15K">SET MOBI FF - 15K</option>
+      <option value="APK QRIS NO KTP - 5K">APK QRIS NO KTP - 5K</option>
+    </select>
+
+    <button class="btn" onclick="orderAPK()">ORDER</button>
+  </div>
+
+  <!-- NOKOS -->
+  <div class="card">
+    <h3>📱 Nokos WA</h3>
+    <div class="note">Nomor virtual</div>
+    <button class="btn" onclick="order('Nokos WhatsApp')">ORDER</button>
+  </div>
+
+  <!-- SUNTIK -->
+  <div class="card">
+    <h3>⚙️ Web Suntik</h3>
+    <div class="note">Panel service</div>
+    <button class="btn" onclick="order('Web Suntik')">ORDER</button>
+  </div>
+
+  <!-- JASAPOST -->
+  <div class="card">
+    <h3>📡 Jasapost</h3>
+    <div class="note">FREE service</div>
+    <button class="btn" onclick="order('Jasapost FREE')">ORDER</button>
+  </div>
+
+  <!-- WEB NOKOS -->
+  <div class="card">
+    <h3>📱 Web Nokos</h3>
+    <div class="note">Akses sistem</div>
+    <button class="btn" onclick="order('Web Nokos')">ORDER</button>
   </div>
 
 </div>
@@ -239,13 +265,18 @@ ${product}`;
 }
 
 function orderBot(){
-  let pilihan = document.getElementById("botSelect").value;
-  order(pilihan);
+  let v = document.getElementById("botSelect").value;
+  order(v);
 }
 
 function orderDrip(){
-  let pilihan = document.getElementById("dripSelect").value;
-  order(pilihan);
+  let v = document.getElementById("dripSelect").value;
+  order(v);
+}
+
+function orderAPK(){
+  let v = document.getElementById("apkSelect").value;
+  order(v);
 }
 </script>
 
