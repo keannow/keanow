@@ -110,6 +110,16 @@ nav a:hover{
   color:#888;
 }
 
+select{
+  width:100%;
+  padding:8px;
+  border-radius:8px;
+  margin-top:10px;
+  background:#111;
+  color:white;
+  border:1px solid #333;
+}
+
 .btn{
   width:100%;
   padding:10px;
@@ -119,6 +129,7 @@ nav a:hover{
   color:white;
   font-weight:bold;
   cursor:pointer;
+  margin-top:10px;
 }
 
 .btn:hover{
@@ -139,7 +150,6 @@ footer{
 
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">KEANN MARKET</div>
   <div>
@@ -148,7 +158,6 @@ footer{
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <h1>KEANN MARKET</h1>
   <p>Digital Services • Bot WhatsApp • Nokos • Web Tools</p>
@@ -165,8 +174,8 @@ footer{
   <div class="card">
     <h3>🤖 Bot WhatsApp</h3>
     <div class="price">5K / 8K / 15K</div>
-    <div class="note">Mingguan • Bulanan • Permanen (Full Garansi)</div>
-    <button class="btn" onclick="order('Bot WhatsApp  5K/8K/15K')">ORDER</button>
+    <div class="note">Mingguan • Bulanan • Permanen</div>
+    <button class="btn" onclick="order('Bot WhatsApp 5K/8K/15K')">ORDER</button>
   </div>
 
   <div class="card">
@@ -197,6 +206,22 @@ footer{
     <button class="btn" onclick="order('Web Nokos bang biar bisa jadi reseller kaya lu')">ORDER</button>
   </div>
 
+  <!-- DRIP CLIENT KEY -->
+  <div class="card">
+    <h3>🔑 DRIP CLIENT KEY</h3>
+    <div class="note">Pilih durasi key</div>
+
+    <select id="dripSelect">
+      <option value="DRIP CLIENT KEY 1 Hari - 25K">1 Hari - 25K</option>
+      <option value="DRIP CLIENT KEY 3 Hari - 40K">3 Hari - 40K</option>
+      <option value="DRIP CLIENT KEY 7 Hari - 65K">7 Hari - 65K</option>
+      <option value="DRIP CLIENT KEY 15 Hari - 90K">15 Hari - 90K</option>
+      <option value="DRIP CLIENT KEY 30 Hari - 140K">30 Hari - 140K</option>
+    </select>
+
+    <button class="btn" onclick="orderDrip()">ORDER</button>
+  </div>
+
 </div>
 
 <footer>
@@ -215,6 +240,11 @@ ${product}`;
 
   let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
   window.open(url, "_blank");
+}
+
+function orderDrip(){
+  let pilihan = document.getElementById("dripSelect").value;
+  order(pilihan);
 }
 </script>
 
