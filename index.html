@@ -1,31 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>KEANN MARKET</title>
+  <meta charset="UTF-8">
+  <title>KEAN MARKET</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#0f0f0f;
+      color:white;
+      text-align:center;
+    }
+
+    header{
+      padding:30px;
+      background:#1c1c1c;
+    }
+
+    h1{
+      margin:0;
+    }
+
+    .container{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      padding:20px;
+      gap:15px;
+    }
+
+    .card{
+      background:#1f1f1f;
+      padding:20px;
+      width:200px;
+      border-radius:12px;
+      transition:0.3s;
+      cursor:pointer;
+      box-shadow:0 0 10px rgba(255,255,255,0.05);
+    }
+
+    .card:hover{
+      transform:scale(1.05);
+      background:#2a2a2a;
+    }
+
+    .btn{
+      margin-top:10px;
+      padding:8px 12px;
+      border:none;
+      border-radius:8px;
+      background:#00c853;
+      color:white;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      background:#00e676;
+    }
+
+  </style>
 </head>
-<body style="background:#0f0f0f; color:white; font-family:Arial; text-align:center;">
 
+<body>
+
+<header>
   <h1>🔥 KEANN MARKET</h1>
-  <p>Pilih layanan di bawah ini</p>
+  <p>Topup & Digital Services</p>
+</header>
 
-  <hr>
+<h2>📌 Layanan Kami</h2>
 
-  <h2>🤖 Bot WhatsApp</h2>
-  <button onclick="alert('Hubungi admin untuk sewa bot')">SEWA BOT WHATSAPP</button>
-  <button onclick="alert('Hubungi admin untuk bot')">JADI BOT WHATSAPP</button>
+<div class="container">
 
-  <h2>📱 WhatsApp</h2>
-  <button onclick="alert('NOKOS WhatsApp tersedia')">NOKOS WHATSAPP</button>
-  <button onclick="alert('Web Nokos')">WEB NOKOS</button>
+  <div class="card">
+    <h3>🤖 Sewa Bot WA</h3>
+    <button class="btn">Order</button>
+  </div>
 
-  <h2>⚙️ Tools</h2>
-  <button onclick="alert('Web suntik tersedia')">WEB SUNTIK</button>
+  <div class="card">
+    <h3>📱 Nokos WA</h3>
+    <button class="btn">Order</button>
+  </div>
 
-  <h2>🎮 Game</h2>
-  <button onclick="alert('Topup game')">TOPUP GAME</button>
+  <div class="card">
+    <h3>⚙️ Web Suntik</h3>
+    <button class="btn">Order</button>
+  </div>
 
-  <h2>📩 Kontak</h2>
-  <button onclick="alert('Hubungi admin via WhatsApp')">CHAT ADMIN</button>
+  <div class="card">
+    <h3>🎮 Topup Game</h3>
+    <button class="btn">Order</button>
+  </div>
+
+</div>
 
 </body>
 </html>
