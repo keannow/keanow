@@ -2,29 +2,32 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Keann Market</title>
+  <title>KEANN MARKET</title>
 
   <style>
     body{
       margin:0;
       font-family:Arial;
-      background:#0f0f0f;
+      background:linear-gradient(135deg,#0d0d0d,#1c1c1c);
       color:white;
       text-align:center;
     }
 
     header{
-      padding:30px;
-      background:#1c1c1c;
+      padding:40px 20px;
+      background:#111;
+      border-bottom:1px solid #333;
     }
 
     h1{
       margin:0;
+      font-size:34px;
+      letter-spacing:2px;
     }
 
     p{
-      margin:5px 0;
       color:#aaa;
+      margin-top:5px;
     }
 
     .wa-btn{
@@ -46,35 +49,45 @@
       display:flex;
       flex-wrap:wrap;
       justify-content:center;
-      padding:20px;
+      padding:30px;
       gap:15px;
     }
 
     .card{
-      background:#1f1f1f;
+      background:#1e1e1e;
       padding:20px;
-      width:200px;
-      border-radius:12px;
+      width:220px;
+      border-radius:15px;
       transition:0.3s;
+      box-shadow:0 0 10px rgba(0,0,0,0.5);
     }
 
     .card:hover{
-      transform:scale(1.05);
+      transform:translateY(-6px);
       background:#2a2a2a;
     }
 
     .btn{
       margin-top:10px;
-      padding:8px 12px;
+      padding:10px;
       border:none;
       border-radius:8px;
       cursor:pointer;
       color:white;
       background:#00c853;
+      width:100%;
+      font-weight:bold;
     }
 
     .btn:hover{
       background:#00e676;
+    }
+
+    footer{
+      margin-top:30px;
+      padding:15px;
+      font-size:12px;
+      color:#666;
     }
 
   </style>
@@ -84,11 +97,10 @@
 
 <header>
   <h1>🔥 KEANN MARKET</h1>
-  <p>Topup & Digital Services</p>
+  <p>Digital Store • Topup • Services</p>
 
-  <!-- WHATSAPP BUTTON -->
   <a class="wa-btn" href="https://wa.me/628125895306" target="_blank">
-    💬 Chat WhatsApp Admin
+    💬 Chat Admin WhatsApp
   </a>
 </header>
 
@@ -98,25 +110,38 @@
 
   <div class="card">
     <h3>🤖 Sewa Bot WA</h3>
-    <button class="btn">Order</button>
+    <button class="btn" onclick="order('Sewa Bot WhatsApp')">ORDER</button>
   </div>
 
   <div class="card">
-    <h3>📱 Nokos WA</h3>
-    <button class="btn">Order</button>
+    <h3>📱 Nokos WhatsApp</h3>
+    <button class="btn" onclick="order('Nokos WhatsApp')">ORDER</button>
   </div>
 
   <div class="card">
     <h3>⚙️ Web Suntik</h3>
-    <button class="btn">Order</button>
+    <button class="btn" onclick="order('Web Suntik')">ORDER</button>
   </div>
 
   <div class="card">
     <h3>🎮 Topup Game</h3>
-    <button class="btn">Order</button>
+    <button class="btn" onclick="order('Topup Game')">ORDER</button>
   </div>
 
 </div>
+
+<footer>
+  © KEANN MARKET - All Rights Reserved
+</footer>
+
+<script>
+function order(product){
+  let nomor = "628125895306";
+  let pesan = "Halo admin KEANN MARKET, saya mau order: " + product;
+  let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+  window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
