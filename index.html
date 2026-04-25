@@ -8,11 +8,10 @@
 body{
   margin:0;
   font-family:Arial;
-  background:#0b0b0b;
+  background:#0a0a0a;
   color:white;
 }
 
-/* NAV */
 nav{
   display:flex;
   justify-content:space-between;
@@ -27,76 +26,67 @@ nav{
   letter-spacing:2px;
 }
 
-/* HERO */
+nav a{
+  color:#aaa;
+  margin-left:15px;
+  text-decoration:none;
+}
+
+nav a:hover{
+  color:white;
+}
+
 .hero{
   text-align:center;
-  padding:50px 20px;
+  padding:60px 20px;
 }
 
 .hero h1{
-  font-size:40px;
+  font-size:42px;
   margin:0;
 }
 
 .hero p{
   color:#aaa;
+  margin-top:10px;
 }
 
 .cta{
   display:inline-block;
-  margin-top:15px;
-  padding:12px 18px;
+  margin-top:18px;
+  padding:12px 20px;
   background:#25D366;
   color:white;
-  border-radius:10px;
   text-decoration:none;
+  border-radius:10px;
   font-weight:bold;
 }
 
-/* TAB MENU */
-.tabs{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin:20px 0;
-  flex-wrap:wrap;
+.cta:hover{
+  background:#1ebe5d;
 }
 
-.tab{
-  padding:10px 15px;
-  background:#1a1a1a;
-  border:1px solid #333;
-  border-radius:8px;
-  cursor:pointer;
-  color:#aaa;
+.title{
+  text-align:center;
+  margin:30px 0 10px;
+  color:#ccc;
 }
 
-.tab.active{
-  background:#00c853;
-  color:white;
-}
-
-/* CONTENT */
 .container{
-  display:none;
+  display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:15px;
   padding:20px;
 }
 
-.container.active{
-  display:flex;
-}
-
-/* CARD */
 .card{
   width:240px;
   background:#161616;
   padding:20px;
   border-radius:14px;
-  border:1px solid #222;
   transition:0.3s;
+  border:1px solid #222;
 }
 
 .card:hover{
@@ -150,115 +140,122 @@ footer{
 
 <nav>
   <div class="logo">KEANN MARKET</div>
+  <div>
+    <a href="#">Home</a>
+    <a href="#produk">Produk</a>
+  </div>
 </nav>
 
 <div class="hero">
   <h1>KEANN MARKET</h1>
-  <p>Marketplace Digital • Bot • Nokos • Tools</p>
+  <p>Digital Services • Bot WhatsApp • Nokos • Tools Store</p>
 
   <a class="cta" href="https://wa.me/628125895306" target="_blank">
-    💬 Chat Admin
+    💬 Chat Admin WhatsApp
   </a>
 </div>
 
-<!-- TAB -->
-<div class="tabs">
-  <div class="tab active" onclick="showTab('bot')">Bot</div>
-  <div class="tab" onclick="showTab('drip')">Drip</div>
-  <div class="tab" onclick="showTab('mobi')">Mobi</div>
-  <div class="tab" onclick="showTab('tools')">Tools</div>
-</div>
+<h2 class="title" id="produk">Layanan Kami</h2>
 
-<!-- BOT -->
-<div id="bot" class="container active">
+<div class="container">
 
+  <!-- BOT -->
   <div class="card">
-    <h3>🤖 Bot WA</h3>
-    <div class="note">Pilih paket</div>
+    <h3>🤖 Bot WhatsApp</h3>
+    <div class="note">Pilih paket bot</div>
 
     <select id="botSelect">
-      <option value="Bot 1 Hari - 2K">1 Hari - 2K</option>
-      <option value="Bot 7 Hari - 5K">7 Hari - 5K</option>
-      <option value="Bot 30 Hari - 8K">30 Hari - 8K</option>
-      <option value="Bot Permanen - 15K">Permanen - 15K</option>
+      <option value="Bot WA 1 Hari - 2K">1 Hari - 2K</option>
+      <option value="Bot WA 7 Hari - 5K">7 Hari - 5K</option>
+      <option value="Bot WA 30 Hari - 8K">30 Hari - 8K</option>
+      <option value="Bot WA Permanen - 15K">Permanen - 15K</option>
     </select>
 
     <button class="btn" onclick="orderBot()">ORDER</button>
   </div>
 
-</div>
-
-<!-- DRIP -->
-<div id="drip" class="container">
-
+  <!-- DRIP -->
   <div class="card">
-    <h3>🔑 DRIP KEY</h3>
+    <h3>🔑 DRIP CLIENT KEY</h3>
+    <div class="note">Pilih durasi key</div>
 
     <select id="dripSelect">
-      <option value="DRIP 1D - 25K">1 Hari - 25K</option>
-      <option value="DRIP 3D - 40K">3 Hari - 40K</option>
-      <option value="DRIP 7D - 65K">7 Hari - 65K</option>
-      <option value="DRIP 15D - 90K">15 Hari - 90K</option>
-      <option value="DRIP 30D - 140K">30 Hari - 140K</option>
+      <option value="DRIP 1 Hari - 25K">1 Hari - 25K</option>
+      <option value="DRIP 3 Hari - 40K">3 Hari - 40K</option>
+      <option value="DRIP 7 Hari - 65K">7 Hari - 65K</option>
+      <option value="DRIP 15 Hari - 90K">15 Hari - 90K</option>
+      <option value="DRIP 30 Hari - 140K">30 Hari - 140K</option>
     </select>
 
     <button class="btn" onclick="orderDrip()">ORDER</button>
   </div>
 
-</div>
-
-<!-- MOBI -->
-<div id="mobi" class="container">
-
+  <!-- MOBI -->
   <div class="card">
-    <h3>📦 MOBI</h3>
+    <h3>📦 KEBUTUHAN MOBI</h3>
+    <div class="note">Pilih layanan MOBI</div>
 
     <select id="mobiSelect">
-      <option value="MOBI Permanen - 10K">Permanen - 10K</option>
-      <option value="SET MOBI FF - 15K">SET FF - 15K</option>
+      <option value="MOBI PERMANEN - 10K">MOBI PERMANEN - 10K</option>
+      <option value="SET MOBI FF - 15K">SET MOBI FF - 15K</option>
     </select>
 
     <button class="btn" onclick="orderMobi()">ORDER</button>
   </div>
 
+  <!-- QRIS (TERPISAH) -->
   <div class="card">
-    <h3>💳 QRIS NO KTP</h3>
-    <div class="note">Tanpa verifikasi</div>
-    <button class="btn" onclick="order('QRIS NO KTP - 5K')">ORDER</button>
+    <h3>💳 APK QRIS NO KTP</h3>
+    <div class="note">Tanpa verifikasi KTP</div>
+    <button class="btn" onclick="order('APK QRIS NO KTP - 5K')">ORDER</button>
   </div>
 
-</div>
-
-<!-- TOOLS -->
-<div id="tools" class="container">
-
+  <!-- NOKOS -->
   <div class="card">
-    <h3>📱 Nokos</h3>
-    <button class="btn" onclick="order('Nokos WA')">ORDER</button>
+    <h3>📱 Nokos WA</h3>
+    <div class="note">Nomor virtual</div>
+    <button class="btn" onclick="order('Nokos WhatsApp')">ORDER</button>
   </div>
 
+  <!-- SUNTIK -->
   <div class="card">
     <h3>⚙️ Web Suntik</h3>
+    <div class="note">Panel service</div>
     <button class="btn" onclick="order('Web Suntik')">ORDER</button>
   </div>
 
+  <!-- JASAPOST -->
   <div class="card">
     <h3>📡 Jasapost</h3>
+    <div class="note">FREE service</div>
     <button class="btn" onclick="order('Jasapost FREE')">ORDER</button>
+  </div>
+
+  <!-- WEB NOKOS -->
+  <div class="card">
+    <h3>📱 Web Nokos</h3>
+    <div class="note">Akses sistem</div>
+    <button class="btn" onclick="order('Web Nokos')">ORDER</button>
   </div>
 
 </div>
 
 <footer>
-  © KEANN MARKET — Marketplace Pro UI
+  © KEANN MARKET — Digital Business Store
 </footer>
 
 <script>
 let nomor = "628125895306";
 
-function order(text){
-  let pesan = `woi keann\n\ngua mau order\n${text}`;
-  window.open("https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan));
+function order(product){
+  let pesan =
+`woi keann
+
+gua mau order
+${product}`;
+
+  let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+  window.open(url, "_blank");
 }
 
 function orderBot(){
@@ -271,15 +268,6 @@ function orderDrip(){
 
 function orderMobi(){
   order(document.getElementById("mobiSelect").value);
-}
-
-/* TAB SYSTEM */
-function showTab(id){
-  document.querySelectorAll(".container").forEach(e=>e.classList.remove("active"));
-  document.querySelectorAll(".tab").forEach(e=>e.classList.remove("active"));
-
-  document.getElementById(id).classList.add("active");
-  event.target.classList.add("active");
 }
 </script>
 
