@@ -8,30 +8,29 @@
 body{
   margin:0;
   font-family:Arial;
-  background:#0b0b0b;
+  background:#0a0a0a;
   color:white;
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px;
+  padding:18px 25px;
   background:#111;
-  border-bottom:1px solid #333;
+  border-bottom:1px solid #222;
 }
 
 .logo{
-  font-size:20px;
   font-weight:bold;
   letter-spacing:2px;
 }
 
 nav a{
   color:#aaa;
-  text-decoration:none;
   margin-left:15px;
+  text-decoration:none;
 }
 
 nav a:hover{
@@ -41,23 +40,23 @@ nav a:hover{
 /* HERO */
 .hero{
   text-align:center;
-  padding:50px 20px;
+  padding:60px 20px;
 }
 
 .hero h1{
-  font-size:40px;
+  font-size:42px;
   margin:0;
 }
 
 .hero p{
   color:#aaa;
+  margin-top:10px;
 }
 
-/* BUTTON WA */
-.wa{
+.cta{
   display:inline-block;
-  margin-top:15px;
-  padding:12px 18px;
+  margin-top:18px;
+  padding:12px 20px;
   background:#25D366;
   color:white;
   text-decoration:none;
@@ -65,10 +64,14 @@ nav a:hover{
   font-weight:bold;
 }
 
-/* SECTION */
-.section-title{
+.cta:hover{
+  background:#1ebe5d;
+}
+
+/* SECTION TITLE */
+.title{
   text-align:center;
-  margin-top:30px;
+  margin:30px 0 10px;
   color:#ccc;
 }
 
@@ -81,17 +84,19 @@ nav a:hover{
   padding:20px;
 }
 
+/* CARD */
 .card{
-  width:230px;
-  background:#1e1e1e;
-  border-radius:15px;
+  width:240px;
+  background:#161616;
   padding:20px;
+  border-radius:14px;
   transition:0.3s;
+  border:1px solid #222;
 }
 
 .card:hover{
-  transform:translateY(-6px);
-  background:#2a2a2a;
+  transform:translateY(-5px);
+  background:#1f1f1f;
 }
 
 .price{
@@ -102,7 +107,7 @@ nav a:hover{
 
 .note{
   font-size:12px;
-  color:#aaa;
+  color:#888;
 }
 
 .btn{
@@ -126,6 +131,8 @@ footer{
   padding:20px;
   color:#666;
   font-size:12px;
+  border-top:1px solid #222;
+  margin-top:30px;
 }
 </style>
 </head>
@@ -143,27 +150,27 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-  <h1>🔥 KEANN MARKET</h1>
-  <p>Digital Store • Bot WA • Nokos • Services</p>
+  <h1>KEANN MARKET</h1>
+  <p>Digital Services • Bot WhatsApp • Nokos • Web Tools</p>
 
-  <a class="wa" href="https://wa.me/628125895306" target="_blank">
+  <a class="cta" href="https://wa.me/628125895306" target="_blank">
     💬 Chat Admin WhatsApp
   </a>
 </div>
 
-<h2 class="section-title" id="produk">📌 Produk Kami</h2>
+<h2 class="title" id="produk">Layanan Kami</h2>
 
 <div class="container">
 
   <div class="card">
-    <h3>🤖 Bot WA</h3>
-    <div class="price">5K - 8K - 15K</div>
-    <div class="note">Mingguan • Bulanan • Permanen</div>
+    <h3>🤖 Bot WhatsApp</h3>
+    <div class="price">5K / 8K / 15K</div>
+    <div class="note">Mingguan • Bulanan • Permanen (Full Garansi)</div>
     <button class="btn" onclick="order('Bot WhatsApp Package')">ORDER</button>
   </div>
 
   <div class="card">
-    <h3>📱 Nokos WA</h3>
+    <h3>📱 Nokos WhatsApp</h3>
     <div class="price">Rp 10.000</div>
     <div class="note">Nomor virtual aktif</div>
     <button class="btn" onclick="order('Nokos WhatsApp')">ORDER</button>
@@ -172,28 +179,28 @@ footer{
   <div class="card">
     <h3>⚙️ Web Suntik</h3>
     <div class="price">Rp 10.000</div>
-    <div class="note">Panel suntik layanan</div>
+    <div class="note">Panel digital service</div>
     <button class="btn" onclick="order('Web Suntik')">ORDER</button>
   </div>
 
   <div class="card">
     <h3>📡 Jasapost</h3>
     <div class="price">FREE</div>
-    <div class="note">Promo gratis</div>
+    <div class="note">Promo gratis untuk user baru</div>
     <button class="btn" onclick="order('Jasapost FREE')">ORDER</button>
   </div>
 
   <div class="card">
     <h3>📱 Web Nokos</h3>
     <div class="price">Rp 10.000</div>
-    <div class="note">Akses sistem nokos</div>
+    <div class="note">Akses sistem nokos full</div>
     <button class="btn" onclick="order('Web Nokos')">ORDER</button>
   </div>
 
 </div>
 
 <footer>
-  © KEANN MARKET • Built for Digital Business
+  © KEANN MARKET — Digital Business Store
 </footer>
 
 <script>
