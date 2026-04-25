@@ -22,7 +22,6 @@ header{
 h1{
   margin:0;
   font-size:36px;
-  letter-spacing:2px;
 }
 
 p{color:#aaa}
@@ -66,6 +65,11 @@ p{color:#aaa}
   margin:10px 0;
 }
 
+.note{
+  font-size:12px;
+  color:#aaa;
+}
+
 .btn{
   width:100%;
   padding:10px;
@@ -106,31 +110,43 @@ footer{
   <div class="card">
     <h3>📱 Nokos WhatsApp</h3>
     <div class="price">Rp 10.000</div>
-    <button class="btn" onclick="order('Nokos WhatsApp')">ORDER</button>
+    <div class="note">Akses full sistem nokos</div>
+    <button class="btn" onclick="order('Nokos WhatsApp (10K)')">ORDER</button>
   </div>
 
   <div class="card">
-    <h3>🤖 Sewa Bot WA (PERMANEN)</h3>
-    <div class="price">Rp 10.000 • Permanent</div>
-    <button class="btn" onclick="order('Sewa Bot WhatsApp PERMANEN')">ORDER</button>
+    <h3>🤖 Sewa Bot WA</h3>
+    <div class="price">Rp 10.000</div>
+    <div class="note">PERMANEN • Full Garansi</div>
+    <button class="btn" onclick="order('Sewa Bot WA PERMANEN (10K)')">ORDER</button>
   </div>
 
   <div class="card">
     <h3>⚙️ Web Suntik</h3>
     <div class="price">Rp 10.000</div>
-    <button class="btn" onclick="order('Web Suntik')">ORDER</button>
+    <div class="note">Panel layanan suntik</div>
+    <button class="btn" onclick="order('Web Suntik (10K)')">ORDER</button>
   </div>
 
   <div class="card">
-    <h3>📡 Web Nokos / Jasapost</h3>
+    <h3>📡 Jasapost</h3>
     <div class="price">FREE</div>
-    <button class="btn" onclick="order('Web Nokos / Jasapost FREE')">ORDER</button>
+    <div class="note">Tanpa biaya</div>
+    <button class="btn" onclick="order('Jasapost FREE')">ORDER</button>
+  </div>
+
+  <div class="card">
+    <h3>📱 Web Nokos</h3>
+    <div class="price">Rp 10.000</div>
+    <div class="note">Full akses sistem nokos</div>
+    <button class="btn" onclick="order('Web Nokos (10K)')">ORDER</button>
   </div>
 
   <div class="card">
     <h3>🤖 Jadi Bot WA</h3>
     <div class="price">Rp 8.000</div>
-    <button class="btn" onclick="order('Jadi Bot WhatsApp')">ORDER</button>
+    <div class="note">Auto bot setup</div>
+    <button class="btn" onclick="order('Jadi Bot WA (8K)')">ORDER</button>
   </div>
 
 </div>
@@ -141,7 +157,12 @@ footer{
 let nomor = "628125895306";
 
 function order(product){
-  let pesan = "Halo admin KEANN MARKET, saya mau order:\n" + product;
+  let pesan =
+`Halo admin KEANN MARKET
+Saya mau order:
+
+Produk: ${product}`;
+
   let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
   window.open(url, "_blank");
 }
