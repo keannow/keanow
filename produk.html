@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produk - KEANN MARKET</title>
 
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f4faff;
+  color:#0d1b2a;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo{
+  font-weight:bold;
+  color:#1565c0;
+}
+
+nav a{
+  text-decoration:none;
+  color:#1565c0;
+}
+
+/* TITLE */
+.title{
+  text-align:center;
+  margin:20px;
+}
+
+/* FORM */
+.form{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.form input{
+  padding:10px;
+  margin:5px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+/* PRODUCT */
+.container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:20px;
+}
+
+.card{
+  width:250px;
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.price{
+  color:#2196f3;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+select{
+  width:100%;
+  padding:8px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+.btn{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  border-radius:8px;
+  background:#2196f3;
+  color:white;
+  cursor:pointer;
+}
+
+.btn:hover{
+  background:#42a5f5;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">KEANN MARKET</div>
+  <a href="index.html">Home</a>
+</nav>
+
+<h2 class="title">Produk Kami</h2>
+
+<div class="form">
+  <input type="text" id="nama" placeholder="Nama kamu">
+  <input type="text" id="catatan" placeholder="Catatan">
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h3>Bot WhatsApp</h3>
+    <div class="price">Mulai 2K</div>
+
+    <select id="bot">
+      <option value="Bot 1 Hari - 2K">1 Hari - 2K</option>
+      <option value="Bot 7 Hari - 5K">7 Hari - 5K</option>
+      <option value="Bot 30 Hari - 8K">30 Hari - 8K</option>
+    </select>
+
+    <button class="btn" onclick="order('bot')">Order</button>
+  </div>
+
+  <div class="card">
+    <h3>DRIP KEY</h3>
+    <div class="price">Mulai 25K</div>
+
+    <select id="drip">
+      <option value="DRIP 1 Hari - 25K">1 Hari</option>
+      <option value="DRIP 7 Hari - 65K">7 Hari</option>
+    </select>
+
+    <button class="btn" onclick="order('drip')">Order</button>
+  </div>
+
+  <div class="card">
+    <h3>Nokos WhatsApp</h3>
+    <div class="price">Ready</div>
+
+    <button class="btn" onclick="orderManual('Nokos WhatsApp')">Order</button>
+  </div>
+
+</div>
+
+<footer>
+  © KEANN MARKET
+</footer>
+
+<script>
+let nomor = "628125895306";
+
+function order(id){
+  let produk = document.getElementById(id).value;
+  kirim(produk);
+}
+
+function orderManual(namaProduk){
+  kirim(namaProduk);
+}
+
+function kirim(produk){
+  let nama = document.getElementById("nama").value;
+  let catatan = document.getElementById("catatan").value;
+
+  if(nama === ""){
+    alert("Isi nama dulu!");
+    return;
+  }
+
+  let pesan =
+`Halo Admin KEANN MARKET
+
+Nama: ${nama}
+Order: ${produk}
+Catatan: ${catatan}`;
+
+  let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
