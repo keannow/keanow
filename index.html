@@ -9,15 +9,14 @@
 body{
   margin:0;
   font-family:Arial;
-  background:linear-gradient(to bottom, #e3f2fd, #ffffff);
+  background:linear-gradient(180deg,#eaf4ff,#ffffff);
   color:#0d1b2a;
 }
 
-/* NAV */
 nav{
   display:flex;
   justify-content:space-between;
-  padding:20px;
+  padding:20px 30px;
 }
 
 .logo{
@@ -25,7 +24,6 @@ nav{
   color:#1565c0;
 }
 
-/* HERO */
 .hero{
   height:90vh;
   display:flex;
@@ -36,7 +34,7 @@ nav{
 }
 
 .hero h1{
-  font-size:48px;
+  font-size:52px;
   margin:0;
 }
 
@@ -47,28 +45,42 @@ nav{
 
 .btn{
   margin-top:25px;
-  padding:14px 28px;
+  padding:14px 30px;
   background:#2196f3;
   border:none;
   color:white;
-  border-radius:10px;
+  border-radius:12px;
   cursor:pointer;
   font-weight:bold;
-  transition:0.3s;
   text-decoration:none;
   display:inline-block;
+  transition:0.3s;
 }
 
 .btn:hover{
-  background:#42a5f5;
   transform:scale(1.05);
+  background:#42a5f5;
 }
 
-/* FOOTER */
+.info{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.box{
+  background:white;
+  padding:15px 20px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
 footer{
   text-align:center;
   padding:20px;
-  color:#666;
+  color:#777;
   font-size:13px;
 }
 </style>
@@ -82,13 +94,19 @@ footer{
 
 <div class="hero">
   <h1>KEANN MARKET</h1>
-  <p>Digital Store • Simple • Clean • Fast</p>
+  <p>Digital Store Premium</p>
 
-  <a href="produk.html" class="btn">Masuk ke Toko</a>
+  <a href="produk.html" class="btn">Masuk Toko</a>
+
+  <div class="info">
+    <div class="box">Fast Process</div>
+    <div class="box">Secure</div>
+    <div class="box">Support</div>
+  </div>
 </div>
 
 <footer>
-  Trusted Digital Store • KEANN MARKET
+  KEANN MARKET
 </footer>
 
 </body>
