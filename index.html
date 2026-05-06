@@ -9,26 +9,12 @@
 body{
   margin:0;
   font-family:Arial;
-  background:linear-gradient(180deg,#eaf4ff,#ffffff);
+  background:linear-gradient(180deg,#eef5ff,#ffffff);
   color:#0d1b2a;
 }
 
-/* NAV */
-nav{
-  display:flex;
-  justify-content:space-between;
-  padding:20px 30px;
-}
-
-.logo{
-  font-weight:bold;
-  color:#1565c0;
-  letter-spacing:1px;
-}
-
-/* HERO */
 .hero{
-  height:90vh;
+  height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -36,82 +22,45 @@ nav{
   text-align:center;
 }
 
-.hero h1{
-  font-size:52px;
+h1{
+  font-size:48px;
   margin:0;
+  letter-spacing:1px;
 }
 
-.hero p{
-  color:#555;
+p{
+  color:#666;
   margin-top:10px;
-  font-size:15px;
 }
 
-/* BUTTON */
+/* BUTTON UPGRADE (lebih clean & premium) */
 .btn{
   margin-top:25px;
-  padding:14px 30px;
-  background:#2196f3;
-  border:none;
+  padding:14px 34px;
+  background:linear-gradient(135deg,#4f8cff,#3a86ff);
   color:white;
-  border-radius:12px;
-  cursor:pointer;
-  font-weight:bold;
   text-decoration:none;
-  display:inline-block;
-  transition:0.3s;
+  border-radius:14px;
+  font-weight:bold;
+  box-shadow:0 10px 20px rgba(58,134,255,0.25);
+  transition:0.25s;
 }
 
 .btn:hover{
-  transform:scale(1.05);
-  background:#42a5f5;
-}
-
-/* SIMPLE INFO BOX */
-.info{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:30px;
-}
-
-.box{
-  background:white;
-  padding:12px 18px;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
-  font-size:13px;
-  color:#333;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  color:#777;
-  font-size:13px;
+  transform:translateY(-3px);
+  box-shadow:0 15px 25px rgba(58,134,255,0.35);
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">KEANN MARKET</div>
-</nav>
-
 <div class="hero">
   <h1>KEANN MARKET</h1>
   <p>Digital Store</p>
 
-  <a href="produk.html" class="btn">Masuk Toko</a>
-
+  <a class="btn" href="produk.html">Masuk Toko</a>
 </div>
-
-<footer>
-  KEANN MARKET
-</footer>
 
 </body>
 </html>
