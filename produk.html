@@ -11,6 +11,7 @@ body{
   font-family:Arial;
   background:#eef5ff;
   color:#0d1b2a;
+  scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -25,7 +26,7 @@ nav{
   font-weight:bold;
 }
 
-/* FORM */
+/* INPUT */
 .form{
   text-align:center;
   margin:15px 0;
@@ -65,6 +66,7 @@ nav{
 /* SECTION */
 section{
   padding:10px 0;
+  scroll-margin-top:80px;
 }
 
 h2{
@@ -96,14 +98,12 @@ h2{
   transform:translateY(-5px);
 }
 
-/* PRICE */
 .price{
   color:#4f8cff;
   font-weight:bold;
   margin-top:5px;
 }
 
-/* SELECT */
 select{
   width:100%;
   padding:9px;
@@ -112,7 +112,7 @@ select{
   border:1px solid #ddd;
 }
 
-/* 🔥 BUTTON UPGRADE (ini yang tadi jelek, gue fix total) */
+/* BUTTON FIX (lebih clean + premium) */
 .btn{
   width:100%;
   padding:11px;
@@ -166,7 +166,6 @@ footer{
 
   <div class="card">
     <h3>Bot WA</h3>
-    <div class="price">2K - 15K</div>
     <select id="bot">
       <option value="Bot 1 Hari - 2K">1 Hari</option>
       <option value="Bot 7 Hari - 5K">7 Hari</option>
@@ -177,7 +176,6 @@ footer{
 
   <div class="card">
     <h3>Nokos WA</h3>
-    <div class="price">Ready</div>
     <button class="btn" onclick="manual('Nokos WA')">ORDER</button>
   </div>
 
