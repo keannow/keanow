@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KEANN MARKET</title>
 
 <style>
@@ -24,6 +25,8 @@ nav{
 .logo{
   font-weight:bold;
   letter-spacing:2px;
+  color:#00e676;
+  text-shadow:0 0 10px #00e676;
 }
 
 nav a{
@@ -72,6 +75,21 @@ nav a:hover{
   color:#ccc;
 }
 
+.form-global{
+  text-align:center;
+  margin-top:10px;
+}
+
+.form-global input{
+  padding:10px;
+  width:200px;
+  border-radius:8px;
+  border:none;
+  margin:5px;
+  background:#111;
+  color:white;
+}
+
 .container{
   display:flex;
   flex-wrap:wrap;
@@ -90,7 +108,7 @@ nav a:hover{
 }
 
 .card:hover{
-  transform:translateY(-5px);
+  transform:scale(1.05);
   background:#1f1f1f;
 }
 
@@ -151,15 +169,19 @@ footer{
   <p>Digital Services • Bot WhatsApp • Nokos • Tools Store</p>
 
   <a class="cta" href="https://wa.me/628125895306" target="_blank">
-    💬 Chat Admin WhatsApp
+    💬 Chat Admin
   </a>
+
+  <div class="form-global">
+    <input type="text" id="nama" placeholder="Nama kamu">
+    <input type="text" id="catatan" placeholder="Catatan (opsional)">
+  </div>
 </div>
 
 <h2 class="title" id="produk">Layanan Kami</h2>
 
 <div class="container">
 
-  <!-- BOT -->
   <div class="card">
     <h3>🤖 Bot WhatsApp</h3>
     <div class="note">Pilih paket bot</div>
@@ -174,7 +196,6 @@ footer{
     <button class="btn" onclick="orderBot()">ORDER</button>
   </div>
 
-  <!-- DRIP -->
   <div class="card">
     <h3>🔑 DRIP CLIENT KEY</h3>
     <div class="note">Pilih durasi key</div>
@@ -190,48 +211,42 @@ footer{
     <button class="btn" onclick="orderDrip()">ORDER</button>
   </div>
 
-  <!-- MOBI -->
   <div class="card">
-    <h3>📦 KEBUTUHAN MOBI</h3>
-    <div class="note">Pilih layanan MOBI</div>
+    <h3>📦 Kebutuhan MOBI</h3>
+    <div class="note">Pilih layanan</div>
 
     <select id="mobiSelect">
-      <option value="MOBI PERMANEN - 10K"> APK MOBI PERMANEN - 10K</option>
+      <option value="MOBI PERMANEN - 10K">APK MOBI PERMANEN - 10K</option>
       <option value="SET MOBI FF - 15K">SET MOBI FF - 15K</option>
     </select>
 
     <button class="btn" onclick="orderMobi()">ORDER</button>
   </div>
 
-  <!-- QRIS (TERPISAH) -->
   <div class="card">
-    <h3>💳 APK QRIS NO KTP</h3>
+    <h3>💳 APK QRIS</h3>
     <div class="note">Tanpa verifikasi KTP</div>
     <button class="btn" onclick="order('APK QRIS NO KTP - 5K')">ORDER</button>
   </div>
 
-  <!-- NOKOS -->
   <div class="card">
-    <h3>📱 Nokos WA</h3>
+    <h3>📱 Nokos WhatsApp</h3>
     <div class="note">Nomor virtual</div>
     <button class="btn" onclick="order('Nokos WhatsApp')">ORDER</button>
   </div>
 
-  <!-- SUNTIK -->
   <div class="card">
     <h3>⚙️ Web Suntik</h3>
     <div class="note">Panel service</div>
     <button class="btn" onclick="order('Web Suntik')">ORDER</button>
   </div>
 
-  <!-- JASAPOST -->
   <div class="card">
     <h3>📡 Jasapost</h3>
     <div class="note">FREE service</div>
     <button class="btn" onclick="order('Jasapost FREE')">ORDER</button>
   </div>
 
-  <!-- WEB NOKOS -->
   <div class="card">
     <h3>📱 Web Nokos</h3>
     <div class="note">Akses sistem</div>
@@ -248,11 +263,22 @@ footer{
 let nomor = "628125895306";
 
 function order(product){
-  let pesan =
-`woi keann
+  let nama = document.getElementById("nama").value;
+  let catatan = document.getElementById("catatan").value;
 
-gua mau order
-${product}`;
+  if(nama === ""){
+    alert("Isi nama dulu ya!");
+    return;
+  }
+
+  let pesan =
+`Halo Admin KEANN MARKET
+
+Nama: ${nama}
+Order: ${product}
+Catatan: ${catatan}`;
+
+  alert("Kamu akan diarahkan ke WhatsApp untuk melanjutkan order.");
 
   let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
   window.open(url, "_blank");
@@ -269,6 +295,9 @@ function orderDrip(){
 function orderMobi(){
   order(document.getElementById("mobiSelect").value);
 }
+
+// disable klik kanan
+document.addEventListener("contextmenu", e => e.preventDefault());
 </script>
 
 </body>
