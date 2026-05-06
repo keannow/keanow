@@ -9,7 +9,7 @@
 body{
   margin:0;
   font-family:Arial;
-  background:#f4faff;
+  background:#f6fbff;
   color:#0d1b2a;
 }
 
@@ -22,18 +22,13 @@ nav{
 }
 
 .logo{
+  color:#1565c0;
   font-weight:bold;
-  color:#1565c0;
-}
-
-nav a{
-  text-decoration:none;
-  color:#1565c0;
 }
 
 .title{
   text-align:center;
-  margin:20px;
+  margin:25px 0;
 }
 
 .form{
@@ -59,14 +54,22 @@ nav a{
 .card{
   width:250px;
   background:white;
+  border-radius:16px;
   padding:20px;
-  border-radius:14px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
   transition:0.3s;
 }
 
 .card:hover{
   transform:translateY(-5px);
+}
+
+.img{
+  width:100%;
+  height:120px;
+  background:linear-gradient(135deg,#2196f3,#90caf9);
+  border-radius:12px;
+  margin-bottom:10px;
 }
 
 .price{
@@ -88,9 +91,10 @@ select{
   padding:10px;
   margin-top:10px;
   border:none;
-  border-radius:8px;
+  border-radius:10px;
   background:#2196f3;
   color:white;
+  font-weight:bold;
   cursor:pointer;
 }
 
@@ -101,7 +105,7 @@ select{
 footer{
   text-align:center;
   padding:20px;
-  color:#666;
+  color:#777;
 }
 </style>
 </head>
@@ -113,38 +117,37 @@ footer{
   <a href="index.html">Home</a>
 </nav>
 
-<h2 class="title">Semua Produk</h2>
+<h2 class="title">Produk</h2>
 
 <div class="form">
-  <input type="text" id="nama" placeholder="Nama kamu">
-  <input type="text" id="catatan" placeholder="Catatan (opsional)">
+  <input type="text" id="nama" placeholder="Nama">
+  <input type="text" id="catatan" placeholder="Catatan">
 </div>
 
 <div class="container">
 
-  <!-- BOT -->
   <div class="card">
-    <h3>🤖 Bot WhatsApp</h3>
-    <div class="price">Mulai 2K</div>
+    <div class="img"></div>
+    <h3>Bot WhatsApp</h3>
+    <div class="price">2K - 15K</div>
 
     <select id="bot">
-      <option value="Bot WA 1 Hari - 2K">1 Hari - 2K</option>
-      <option value="Bot WA 7 Hari - 5K">7 Hari - 5K</option>
-      <option value="Bot WA 30 Hari - 8K">30 Hari - 8K</option>
-      <option value="Bot WA Permanen - 15K">Permanen - 15K</option>
+      <option value="Bot 1 Hari - 2K">1 Hari</option>
+      <option value="Bot 7 Hari - 5K">7 Hari</option>
+      <option value="Bot 30 Hari - 8K">30 Hari</option>
+      <option value="Bot Permanen - 15K">Permanen</option>
     </select>
 
     <button class="btn" onclick="orderSelect('bot')">ORDER</button>
   </div>
 
-  <!-- DRIP -->
   <div class="card">
-    <h3>🔑 DRIP CLIENT KEY</h3>
-    <div class="price">Mulai 25K</div>
+    <div class="img"></div>
+    <h3>DRIP KEY</h3>
+    <div class="price">25K - 140K</div>
 
     <select id="drip">
       <option value="DRIP 1 Hari - 25K">1 Hari</option>
-      <option value="DRIP 3 Hari - 40K">3 Hari</option>
       <option value="DRIP 7 Hari - 65K">7 Hari</option>
       <option value="DRIP 30 Hari - 140K">30 Hari</option>
     </select>
@@ -152,58 +155,23 @@ footer{
     <button class="btn" onclick="orderSelect('drip')">ORDER</button>
   </div>
 
-  <!-- MOBI FIXED -->
   <div class="card">
-    <h3>📦 Kebutuhan MOBI</h3>
-    <div class="price">Mulai 10K</div>
+    <div class="img"></div>
+    <h3>MOBI</h3>
+    <div class="price">10K - 15K</div>
 
     <select id="mobi">
-      <option value="APK MOBI PERMANEN - 10K">APK MOBI PERMANEN - 10K</option>
-      <option value="SET MOBI FF - 15K">SET MOBI FF - 15K</option>
+      <option value="APK MOBI PERMANEN - 10K">APK MOBI</option>
+      <option value="SET MOBI FF - 15K">SET FF</option>
     </select>
 
     <button class="btn" onclick="orderSelect('mobi')">ORDER</button>
   </div>
 
-  <!-- QRIS -->
-  <div class="card">
-    <h3>💳 APK QRIS</h3>
-    <div class="price">5K</div>
-    <button class="btn" onclick="orderManual('APK QRIS NO KTP - 5K')">ORDER</button>
-  </div>
-
-  <!-- NOKOS -->
-  <div class="card">
-    <h3>📱 Nokos WA</h3>
-    <div class="price">Ready</div>
-    <button class="btn" onclick="orderManual('Nokos WhatsApp')">ORDER</button>
-  </div>
-
-  <!-- SUNTIK -->
-  <div class="card">
-    <h3>⚙️ Web Suntik</h3>
-    <div class="price">Service</div>
-    <button class="btn" onclick="orderManual('Web Suntik')">ORDER</button>
-  </div>
-
-  <!-- JASAPOST -->
-  <div class="card">
-    <h3>📡 Jasapost</h3>
-    <div class="price">FREE</div>
-    <button class="btn" onclick="orderManual('Jasapost FREE')">ORDER</button>
-  </div>
-
-  <!-- WEB NOKOS -->
-  <div class="card">
-    <h3>🌐 Web Nokos</h3>
-    <div class="price">Access</div>
-    <button class="btn" onclick="orderManual('Web Nokos')">ORDER</button>
-  </div>
-
 </div>
 
 <footer>
-  © KEANN MARKET
+  KEANN MARKET
 </footer>
 
 <script>
@@ -211,31 +179,21 @@ let nomor = "628125895306";
 
 function orderSelect(id){
   let produk = document.getElementById(id).value;
-  kirim(produk);
-}
 
-function orderManual(produk){
-  kirim(produk);
-}
-
-function kirim(produk){
   let nama = document.getElementById("nama").value;
   let catatan = document.getElementById("catatan").value;
 
   if(nama === ""){
-    alert("Isi nama dulu!");
+    alert("Isi nama");
     return;
   }
 
   let pesan =
-`Halo Admin KEANN MARKET
-
-Nama: ${nama}
+`Nama: ${nama}
 Order: ${produk}
 Catatan: ${catatan}`;
 
-  let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
-  window.open(url, "_blank");
+  window.open("https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan), "_blank");
 }
 </script>
 
