@@ -9,25 +9,23 @@
 body{
   margin:0;
   font-family:Arial;
-  background:#f6f9fc;
+  background:#eef5ff;
   color:#0d1b2a;
 }
 
 /* NAV */
 nav{
-  display:flex;
-  justify-content:space-between;
-  padding:20px;
+  padding:18px;
   background:white;
   box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo{
-  color:#3a86ff;
+  color:#4f8cff;
   font-weight:bold;
 }
 
-/* INPUT */
+/* FORM */
 .form{
   text-align:center;
   margin:15px 0;
@@ -36,87 +34,105 @@ nav{
 .form input{
   padding:10px;
   margin:5px;
-  border-radius:8px;
+  border-radius:10px;
   border:1px solid #ddd;
 }
 
-/* MENU BUTTON */
+/* MENU */
 .menu{
   display:flex;
   justify-content:center;
-  gap:10px;
   flex-wrap:wrap;
-  margin-bottom:10px;
+  gap:10px;
+  padding:10px;
 }
 
 .menu button{
-  padding:10px 15px;
+  padding:10px 16px;
   border:none;
-  border-radius:20px;
-  background:#e6f0ff;
-  color:#3a86ff;
+  border-radius:999px;
+  background:#eaf2ff;
+  color:#4f8cff;
   font-weight:bold;
   cursor:pointer;
+  transition:0.2s;
 }
 
-/* DROPDOWN SECTION */
-.section{
-  display:none;
+.menu button:hover{
+  background:#dbe9ff;
+}
+
+/* SECTION */
+section{
   padding:10px 0;
 }
 
+h2{
+  text-align:center;
+  color:#4f8cff;
+  margin-top:25px;
+}
+
+/* CONTAINER */
 .container{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:20px;
-  padding:10px 20px 20px;
+  gap:18px;
+  padding:15px;
 }
 
 /* CARD */
 .card{
   width:240px;
   background:white;
-  border-radius:14px;
-  padding:20px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.05);
-  transition:0.3s;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.06);
+  transition:0.25s;
 }
 
 .card:hover{
   transform:translateY(-5px);
 }
 
+/* PRICE */
 .price{
-  color:#3a86ff;
+  color:#4f8cff;
   font-weight:bold;
   margin-top:5px;
 }
 
+/* SELECT */
 select{
   width:100%;
-  padding:8px;
+  padding:9px;
   margin-top:10px;
-  border-radius:8px;
+  border-radius:10px;
   border:1px solid #ddd;
 }
 
+/* 🔥 BUTTON UPGRADE (ini yang tadi jelek, gue fix total) */
 .btn{
   width:100%;
-  padding:10px;
+  padding:11px;
   margin-top:10px;
   border:none;
-  border-radius:10px;
-  background:#3a86ff;
+  border-radius:12px;
+  background:linear-gradient(135deg,#4f8cff,#3a86ff);
   color:white;
   font-weight:bold;
   cursor:pointer;
+  transition:0.2s;
+  box-shadow:0 8px 15px rgba(58,134,255,0.25);
 }
 
 .btn:hover{
-  background:#5aa0ff;
+  transform:translateY(-2px);
+  box-shadow:0 12px 20px rgba(58,134,255,0.35);
 }
 
+/* FOOTER */
 footer{
   text-align:center;
   padding:20px;
@@ -136,153 +152,130 @@ footer{
   <input type="text" id="catatan" placeholder="Catatan">
 </div>
 
-<!-- MENU TOGGLE -->
 <div class="menu">
-  <button onclick="toggle('wa')">KEBUTUHAN WA</button>
-  <button onclick="toggle('jb')">KEBUTUHAN JB</button>
-  <button onclick="toggle('mobi')">FF MOBI</button>
-  <button onclick="toggle('drip')">FF MOD MENU</button>
+  <button onclick="go('wa')">WA</button>
+  <button onclick="go('jb')">JB</button>
+  <button onclick="go('mobi')">MOBI</button>
+  <button onclick="go('drip')">DRIP</button>
 </div>
 
 <!-- WA -->
-<div id="wa" class="section">
-  <div class="container">
+<section id="wa">
+<h2>KEBUTUHAN WA</h2>
+<div class="container">
 
-    <div class="card">
-      <h3>Bot WhatsApp</h3>
-      <div class="price">2K - 15K</div>
-
-      <select id="bot">
-        <option value="Bot 1 Hari - 2K">1 Hari</option>
-        <option value="Bot 7 Hari - 5K">7 Hari</option>
-        <option value="Bot 30 Hari - 8K">30 Hari</option>
-      </select>
-
-      <button class="btn" onclick="order('bot')">ORDER</button>
-    </div>
-
-    <div class="card">
-      <h3>Nokos WA</h3>
-      <div class="price">Ready</div>
-      <button class="btn" onclick="orderManual('Nokos WhatsApp')">ORDER</button>
-    </div>
-
+  <div class="card">
+    <h3>Bot WA</h3>
+    <div class="price">2K - 15K</div>
+    <select id="bot">
+      <option value="Bot 1 Hari - 2K">1 Hari</option>
+      <option value="Bot 7 Hari - 5K">7 Hari</option>
+      <option value="Bot 30 Hari - 8K">30 Hari</option>
+    </select>
+    <button class="btn" onclick="order('bot')">ORDER</button>
   </div>
+
+  <div class="card">
+    <h3>Nokos WA</h3>
+    <div class="price">Ready</div>
+    <button class="btn" onclick="manual('Nokos WA')">ORDER</button>
+  </div>
+
 </div>
+</section>
 
 <!-- JB -->
-<div id="jb" class="section">
-  <div class="container">
+<section id="jb">
+<h2>KEBUTUHAN JB</h2>
+<div class="container">
 
-    <div class="card">
-      <h3>Jasapost</h3>
-      <div class="price">FREE</div>
-      <button class="btn" onclick="orderManual('Jasapost FREE')">ORDER</button>
-    </div>
-
-    <div class="card">
-      <h3>QRIS NO KTP</h3>
-      <div class="price">5K</div>
-      <button class="btn" onclick="orderManual('QRIS NO KTP')">ORDER</button>
-    </div>
-
-    <div class="card">
-      <h3>Web Suntik</h3>
-      <div class="price">Service</div>
-      <button class="btn" onclick="orderManual('Web Suntik')">ORDER</button>
-    </div>
-
-    <div class="card">
-      <h3>Web Nokos</h3>
-      <div class="price">Access</div>
-      <button class="btn" onclick="orderManual('Web Nokos')">ORDER</button>
-    </div>
-
+  <div class="card">
+    <h3>Jasapost</h3>
+    <button class="btn" onclick="manual('Jasapost')">ORDER</button>
   </div>
+
+  <div class="card">
+    <h3>QRIS NO KTP</h3>
+    <button class="btn" onclick="manual('QRIS NO KTP')">ORDER</button>
+  </div>
+
+  <div class="card">
+    <h3>Web Suntik</h3>
+    <button class="btn" onclick="manual('Web Suntik')">ORDER</button>
+  </div>
+
+  <div class="card">
+    <h3>Web Nokos</h3>
+    <button class="btn" onclick="manual('Web Nokos')">ORDER</button>
+  </div>
+
 </div>
+</section>
 
 <!-- MOBI -->
-<div id="mobi" class="section">
-  <div class="container">
+<section id="mobi">
+<h2>MOBI</h2>
+<div class="container">
 
-    <div class="card">
-      <h3>APK MOBI</h3>
-      <div class="price">10K</div>
-
-      <select id="mobiSelect">
-        <option value="APK MOBI - 10K">APK MOBI</option>
-        <option value="SET FF - 15K">SET FF</option>
-      </select>
-
-      <button class="btn" onclick="order('mobiSelect')">ORDER</button>
-    </div>
-
+  <div class="card">
+    <h3>APK MOBI</h3>
+    <select id="mobiSelect">
+      <option value="APK MOBI - 10K">APK MOBI</option>
+      <option value="SET FF - 15K">SET FF</option>
+    </select>
+    <button class="btn" onclick="order('mobiSelect')">ORDER</button>
   </div>
+
 </div>
+</section>
 
 <!-- DRIP -->
-<div id="drip" class="section">
-  <div class="container">
+<section id="drip">
+<h2>DRIP</h2>
+<div class="container">
 
-    <div class="card">
-      <h3>LIST KEY DRIP</h3>
-      <div class="price">25K - 140K</div>
-
-      <select id="drip">
-        <option value="DRIP 1 Hari - 25K">1 Hari</option>
-        <option value="DRIP 7 Hari - 65K">7 Hari</option>
-        <option value="DRIP 30 Hari - 140K">30 Hari</option>
-      </select>
-
-      <button class="btn" onclick="order('drip')">ORDER</button>
-    </div>
-
+  <div class="card">
+    <h3>KEY DRIP</h3>
+    <select id="drip">
+      <option value="DRIP 1 Hari - 25K">1 Hari</option>
+      <option value="DRIP 7 Hari - 65K">7 Hari</option>
+      <option value="DRIP 30 Hari - 140K">30 Hari</option>
+    </select>
+    <button class="btn" onclick="order('drip')">ORDER</button>
   </div>
-</div>
 
-<footer>
-  KEANN MARKET
-</footer>
+</div>
+</section>
+
+<footer>KEANN MARKET</footer>
 
 <script>
-let nomor = "628125895306";
+let nomor="628125895306";
 
-/* toggle menu */
-function toggle(id){
-  let sec = document.getElementById(id);
-
-  if(sec.style.display === "block"){
-    sec.style.display = "none";
-  }else{
-    sec.style.display = "block";
-  }
+function go(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-/* order */
 function order(id){
-  let produk = document.getElementById(id).value;
-  kirim(produk);
+  kirim(document.getElementById(id).value);
 }
 
-function orderManual(produk){
-  kirim(produk);
+function manual(p){
+  kirim(p);
 }
 
-function kirim(produk){
-  let nama = document.getElementById("nama").value;
-  let catatan = document.getElementById("catatan").value;
+function kirim(p){
+  let nama=document.getElementById("nama").value;
+  let catatan=document.getElementById("catatan").value;
 
-  if(nama === ""){
+  if(!nama){
     alert("Isi nama dulu");
     return;
   }
 
-  let pesan =
-`Nama: ${nama}
-Order: ${produk}
-Catatan: ${catatan}`;
+  let msg=`Nama: ${nama}\nOrder: ${p}\nCatatan: ${catatan}`;
 
-  window.open("https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan), "_blank");
+  window.open("https://wa.me/"+nomor+"?text="+encodeURIComponent(msg));
 }
 </script>
 
