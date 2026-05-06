@@ -26,7 +26,7 @@ nav{
   color:#00e676;
 }
 
-/* HERO SMALL */
+/* HERO */
 .hero{
   text-align:center;
   padding:30px 20px;
@@ -60,12 +60,6 @@ nav{
   background:#1f1f1f;
 }
 
-.note{
-  font-size:12px;
-  color:#888;
-  margin-top:5px;
-}
-
 select{
   width:100%;
   padding:8px;
@@ -76,7 +70,7 @@ select{
   border:1px solid #333;
 }
 
-/* BUTTON FIX */
+/* BUTTON */
 .btn{
   width:100%;
   padding:10px;
@@ -132,6 +126,21 @@ footer{
     <button class="btn" onclick="orderBot()">ORDER</button>
   </div>
 
+  <!-- BUG WHATSAPP (REPLACE JASAPOST) -->
+  <div class="card">
+    <h3>Bug WhatsApp List</h3>
+
+    <select id="bugSelect">
+      <option value="JASA BUG - 5K">JASA BUG - 5K</option>
+      <option value="MURBUG - 10K">MURBUG - 10K</option>
+      <option value="ADMIN BUG - 25K">ADMIN BUG - 25K</option>
+      <option value="OWN BUG - 40K">OWN BUG - 40K</option>
+      <option value="SEWA BOT 1 BULAN - 55K">SEWA BOT 1 BULAN - 55K</option>
+    </select>
+
+    <button class="btn" onclick="orderBug()">ORDER</button>
+  </div>
+
   <!-- DRIP -->
   <div class="card">
     <h3>DRIP CLIENT KEY</h3>
@@ -151,7 +160,7 @@ footer{
     <h3>KEBUTUHAN MOBI</h3>
 
     <select id="mobiSelect">
-      <option value="MOBI PERMANEN - 10K">APK MOBI - 10K</option>
+      <option value="APK MOBI - 10K">APK MOBI - 10K</option>
       <option value="SET MOBI FF - 15K">SET MOBI - 15K</option>
     </select>
 
@@ -175,20 +184,13 @@ footer{
   </div>
 
   <div class="card">
-    <h3>Jasapost</h3>
-    <button class="btn" onclick="order('Jasapost FREE')">ORDER</button>
-  </div>
-
-  <div class="card">
     <h3>Web Nokos</h3>
     <button class="btn" onclick="order('Web Nokos')">ORDER</button>
   </div>
 
 </div>
 
-<footer>
-  © KEANN MARKET
-</footer>
+<footer>© KEANN MARKET</footer>
 
 <script>
 let nomor = "628125895306";
@@ -208,6 +210,11 @@ function orderDrip(){
 
 function orderMobi(){
   order(document.getElementById("mobiSelect").value);
+}
+
+/* BUG WHATSAPP */
+function orderBug(){
+  order(document.getElementById("bugSelect").value);
 }
 </script>
 
