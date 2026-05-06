@@ -11,21 +11,21 @@ body{
   font-family:Arial;
   background:#0a0a0a;
   color:white;
+  scroll-behavior:smooth;
 }
 
+/* NAV */
 nav{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   padding:18px 25px;
   background:#111;
   border-bottom:1px solid #222;
 }
 
 .logo{
-  font-weight:bold;
-  letter-spacing:2px;
   color:#00e676;
+  font-weight:bold;
   text-shadow:0 0 10px #00e676;
 }
 
@@ -39,13 +39,19 @@ nav a:hover{
   color:white;
 }
 
+/* HERO */
 .hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:60px 20px;
+  background:linear-gradient(to bottom, #0a0a0a, #050505);
 }
 
 .hero h1{
-  font-size:42px;
+  font-size:48px;
   margin:0;
 }
 
@@ -54,48 +60,54 @@ nav a:hover{
   margin-top:10px;
 }
 
-.cta{
-  display:inline-block;
-  margin-top:18px;
-  padding:12px 20px;
-  background:#25D366;
+.btn-main{
+  margin-top:25px;
+  padding:14px 28px;
+  background:#00c853;
+  border:none;
   color:white;
-  text-decoration:none;
   border-radius:10px;
+  cursor:pointer;
   font-weight:bold;
+  box-shadow:0 0 15px #00c853;
 }
 
-.cta:hover{
-  background:#1ebe5d;
+.btn-main:hover{
+  background:#00e676;
+}
+
+/* SECTION */
+.section{
+  padding:40px 20px;
 }
 
 .title{
   text-align:center;
-  margin:30px 0 10px;
+  margin-bottom:20px;
   color:#ccc;
 }
 
+/* FORM */
 .form-global{
   text-align:center;
-  margin-top:10px;
+  margin-bottom:20px;
 }
 
 .form-global input{
   padding:10px;
-  width:200px;
+  margin:5px;
   border-radius:8px;
   border:none;
-  margin:5px;
   background:#111;
   color:white;
 }
 
+/* PRODUCT */
 .container{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:15px;
-  padding:20px;
+  gap:20px;
 }
 
 .card{
@@ -104,52 +116,66 @@ nav a:hover{
   padding:20px;
   border-radius:14px;
   transition:0.3s;
+  position:relative;
   border:1px solid #222;
 }
 
 .card:hover{
-  transform:scale(1.05);
+  transform:translateY(-6px) scale(1.03);
   background:#1f1f1f;
 }
 
-.note{
-  font-size:12px;
-  color:#888;
+/* BADGE */
+.badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ff3d00;
+  padding:4px 8px;
+  font-size:10px;
+  border-radius:6px;
 }
 
-select{
-  width:100%;
-  padding:8px;
-  border-radius:8px;
-  margin-top:10px;
-  background:#111;
-  color:white;
-  border:1px solid #333;
+/* PRICE */
+.price{
+  margin-top:8px;
+  color:#00e676;
+  font-weight:bold;
 }
 
+/* BUTTON */
 .btn{
   width:100%;
   padding:10px;
+  margin-top:10px;
   border:none;
   border-radius:8px;
   background:#00c853;
   color:white;
-  font-weight:bold;
   cursor:pointer;
-  margin-top:10px;
+  font-weight:bold;
 }
 
 .btn:hover{
   background:#00e676;
 }
 
+select{
+  width:100%;
+  padding:8px;
+  margin-top:10px;
+  border-radius:8px;
+  background:#111;
+  color:white;
+  border:1px solid #333;
+}
+
+/* FOOTER */
 footer{
   text-align:center;
   padding:20px;
   color:#666;
-  font-size:12px;
   border-top:1px solid #222;
-  margin-top:30px;
 }
 </style>
 </head>
@@ -164,110 +190,82 @@ footer{
   </div>
 </nav>
 
+<!-- HOME -->
 <div class="hero">
   <h1>KEANN MARKET</h1>
-  <p>Digital Services • Bot WhatsApp • Nokos • Tools Store</p>
+  <p>Digital Store • Bot • Nokos • Tools Premium</p>
 
-  <a class="cta" href="https://wa.me/628125895306" target="_blank">
-    💬 Chat Admin
-  </a>
+  <button class="btn-main" onclick="scrollToProduk()">
+    🚀 Lihat Produk
+  </button>
+</div>
+
+<!-- PRODUK -->
+<div class="section" id="produk">
+
+  <h2 class="title">Produk Terlaris</h2>
 
   <div class="form-global">
     <input type="text" id="nama" placeholder="Nama kamu">
     <input type="text" id="catatan" placeholder="Catatan (opsional)">
   </div>
-</div>
 
-<h2 class="title" id="produk">Layanan Kami</h2>
+  <div class="container">
 
-<div class="container">
+    <div class="card">
+      <div class="badge">BEST</div>
+      <h3>🤖 Bot WhatsApp</h3>
+      <div class="price">Mulai 2K</div>
 
-  <div class="card">
-    <h3>🤖 Bot WhatsApp</h3>
-    <div class="note">Pilih paket bot</div>
+      <select id="botSelect">
+        <option value="Bot 1 Hari - 2K">1 Hari - 2K</option>
+        <option value="Bot 7 Hari - 5K">7 Hari - 5K</option>
+        <option value="Bot 30 Hari - 8K">30 Hari - 8K</option>
+        <option value="Bot Permanen - 15K">Permanen - 15K</option>
+      </select>
 
-    <select id="botSelect">
-      <option value="Bot WA 1 Hari - 2K">1 Hari - 2K</option>
-      <option value="Bot WA 7 Hari - 5K">7 Hari - 5K</option>
-      <option value="Bot WA 30 Hari - 8K">30 Hari - 8K</option>
-      <option value="Bot WA Permanen - 15K">Permanen - 15K</option>
-    </select>
+      <button class="btn" onclick="orderBot()">ORDER</button>
+    </div>
 
-    <button class="btn" onclick="orderBot()">ORDER</button>
+    <div class="card">
+      <h3>🔑 DRIP KEY</h3>
+      <div class="price">Mulai 25K</div>
+
+      <select id="dripSelect">
+        <option value="DRIP 1 Hari - 25K">1 Hari - 25K</option>
+        <option value="DRIP 7 Hari - 65K">7 Hari - 65K</option>
+        <option value="DRIP 30 Hari - 140K">30 Hari - 140K</option>
+      </select>
+
+      <button class="btn" onclick="orderDrip()">ORDER</button>
+    </div>
+
+    <div class="card">
+      <h3>📱 Nokos WhatsApp</h3>
+      <div class="price">Ready</div>
+      <button class="btn" onclick="order('Nokos WhatsApp')">ORDER</button>
+    </div>
+
   </div>
-
-  <div class="card">
-    <h3>🔑 DRIP CLIENT KEY</h3>
-    <div class="note">Pilih durasi key</div>
-
-    <select id="dripSelect">
-      <option value="DRIP 1 Hari - 25K">1 Hari - 25K</option>
-      <option value="DRIP 3 Hari - 40K">3 Hari - 40K</option>
-      <option value="DRIP 7 Hari - 65K">7 Hari - 65K</option>
-      <option value="DRIP 15 Hari - 90K">15 Hari - 90K</option>
-      <option value="DRIP 30 Hari - 140K">30 Hari - 140K</option>
-    </select>
-
-    <button class="btn" onclick="orderDrip()">ORDER</button>
-  </div>
-
-  <div class="card">
-    <h3>📦 Kebutuhan MOBI</h3>
-    <div class="note">Pilih layanan</div>
-
-    <select id="mobiSelect">
-      <option value="MOBI PERMANEN - 10K">APK MOBI PERMANEN - 10K</option>
-      <option value="SET MOBI FF - 15K">SET MOBI FF - 15K</option>
-    </select>
-
-    <button class="btn" onclick="orderMobi()">ORDER</button>
-  </div>
-
-  <div class="card">
-    <h3>💳 APK QRIS</h3>
-    <div class="note">Tanpa verifikasi KTP</div>
-    <button class="btn" onclick="order('APK QRIS NO KTP - 5K')">ORDER</button>
-  </div>
-
-  <div class="card">
-    <h3>📱 Nokos WhatsApp</h3>
-    <div class="note">Nomor virtual</div>
-    <button class="btn" onclick="order('Nokos WhatsApp')">ORDER</button>
-  </div>
-
-  <div class="card">
-    <h3>⚙️ Web Suntik</h3>
-    <div class="note">Panel service</div>
-    <button class="btn" onclick="order('Web Suntik')">ORDER</button>
-  </div>
-
-  <div class="card">
-    <h3>📡 Jasapost</h3>
-    <div class="note">FREE service</div>
-    <button class="btn" onclick="order('Jasapost FREE')">ORDER</button>
-  </div>
-
-  <div class="card">
-    <h3>📱 Web Nokos</h3>
-    <div class="note">Akses sistem</div>
-    <button class="btn" onclick="order('Web Nokos')">ORDER</button>
-  </div>
-
 </div>
 
 <footer>
-  © KEANN MARKET — Digital Business Store
+  © KEANN MARKET — Digital Store
 </footer>
 
 <script>
 let nomor = "628125895306";
+
+function scrollToProduk(){
+  document.getElementById("produk").scrollIntoView();
+}
 
 function order(product){
   let nama = document.getElementById("nama").value;
   let catatan = document.getElementById("catatan").value;
 
   if(nama === ""){
-    alert("Isi nama dulu ya!");
+    alert("Isi nama dulu!");
     return;
   }
 
@@ -278,26 +276,17 @@ Nama: ${nama}
 Order: ${product}
 Catatan: ${catatan}`;
 
-  alert("Kamu akan diarahkan ke WhatsApp untuk melanjutkan order.");
+  alert("Menghubungkan ke WhatsApp...");
 
   let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
   window.open(url, "_blank");
 }
-
 function orderBot(){
   order(document.getElementById("botSelect").value);
 }
-
 function orderDrip(){
   order(document.getElementById("dripSelect").value);
 }
-
-function orderMobi(){
-  order(document.getElementById("mobiSelect").value);
-}
-
-// disable klik kanan
-document.addEventListener("contextmenu", e => e.preventDefault());
 </script>
 
 </body>
