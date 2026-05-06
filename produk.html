@@ -117,45 +117,85 @@ footer{
   <a href="index.html">Home</a>
 </nav>
 
-<h2 class="title">Produk Kami</h2>
+<h2 class="title">Semua Produk</h2>
 
 <div class="form">
   <input type="text" id="nama" placeholder="Nama kamu">
-  <input type="text" id="catatan" placeholder="Catatan">
+  <input type="text" id="catatan" placeholder="Catatan (opsional)">
 </div>
 
 <div class="container">
 
+  <!-- BOT -->
   <div class="card">
-    <h3>Bot WhatsApp</h3>
+    <h3>🤖 Bot WhatsApp</h3>
     <div class="price">Mulai 2K</div>
 
     <select id="bot">
-      <option value="Bot 1 Hari - 2K">1 Hari - 2K</option>
-      <option value="Bot 7 Hari - 5K">7 Hari - 5K</option>
-      <option value="Bot 30 Hari - 8K">30 Hari - 8K</option>
+      <option value="Bot WA 1 Hari - 2K">1 Hari - 2K</option>
+      <option value="Bot WA 7 Hari - 5K">7 Hari - 5K</option>
+      <option value="Bot WA 30 Hari - 8K">30 Hari - 8K</option>
+      <option value="Bot WA Permanen - 15K">Permanen - 15K</option>
     </select>
 
-    <button class="btn" onclick="order('bot')">Order</button>
+    <button class="btn" onclick="orderSelect('bot')">ORDER</button>
   </div>
 
+  <!-- DRIP -->
   <div class="card">
-    <h3>DRIP KEY</h3>
+    <h3>🔑 DRIP CLIENT KEY</h3>
     <div class="price">Mulai 25K</div>
 
     <select id="drip">
       <option value="DRIP 1 Hari - 25K">1 Hari</option>
+      <option value="DRIP 3 Hari - 40K">3 Hari</option>
       <option value="DRIP 7 Hari - 65K">7 Hari</option>
+      <option value="DRIP 30 Hari - 140K">30 Hari</option>
     </select>
 
-    <button class="btn" onclick="order('drip')">Order</button>
+    <button class="btn" onclick="orderSelect('drip')">ORDER</button>
   </div>
 
+  <!-- MOBI -->
   <div class="card">
-    <h3>Nokos WhatsApp</h3>
-    <div class="price">Ready</div>
+    <h3>📦 Kebutuhan MOBI</h3>
+    <div class="price">Service</div>
+    <button class="btn" onclick="orderManual('APK MOBI PERMANEN - 10K')">ORDER</button>
+  </div>
 
-    <button class="btn" onclick="orderManual('Nokos WhatsApp')">Order</button>
+  <!-- QRIS -->
+  <div class="card">
+    <h3>💳 APK QRIS</h3>
+    <div class="price">5K</div>
+    <button class="btn" onclick="orderManual('APK QRIS NO KTP - 5K')">ORDER</button>
+  </div>
+
+  <!-- NOKOS -->
+  <div class="card">
+    <h3>📱 Nokos WA</h3>
+    <div class="price">Ready</div>
+    <button class="btn" onclick="orderManual('Nokos WhatsApp')">ORDER</button>
+  </div>
+
+  <!-- SUNTIK -->
+  <div class="card">
+    <h3>⚙️ Web Suntik</h3>
+    <div class="price">Service</div>
+    <button class="btn" onclick="orderManual('Web Suntik')">ORDER</button>
+  </div>
+
+  <!-- JASAPOST -->
+  <div class="card">
+    <h3>📡 Jasapost</h3>
+    <div class="price">FREE</div>
+    <button class="btn" onclick="orderManual('Jasapost FREE')">ORDER</button>
+  </div>
+
+  <!-- WEB NOKOS -->
+  <div class="card">
+    <h3>🌐 Web Nokos</h3>
+    <div class="price">Access</div>
+    <button class="btn" onclick="orderManual('Web Nokos')">ORDER</button>
   </div>
 
 </div>
@@ -167,7 +207,7 @@ footer{
 <script>
 let nomor = "628125895306";
 
-function order(id){
+function orderSelect(id){
   let produk = document.getElementById(id).value;
   kirim(produk);
 }
