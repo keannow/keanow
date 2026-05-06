@@ -11,8 +11,10 @@ body{
   font-family:Arial;
   background:#f6fbff;
   color:#0d1b2a;
+  scroll-behavior:smooth;
 }
 
+/* NAV */
 nav{
   display:flex;
   justify-content:space-between;
@@ -26,14 +28,29 @@ nav{
   font-weight:bold;
 }
 
-.title{
-  text-align:center;
-  margin:25px 0;
+/* MENU */
+.menu{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  padding:15px;
 }
 
+.menu button{
+  padding:8px 14px;
+  border:none;
+  border-radius:20px;
+  background:#e3f2fd;
+  color:#1565c0;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* FORM */
 .form{
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:10px;
 }
 
 .form input{
@@ -43,6 +60,20 @@ nav{
   border:1px solid #ddd;
 }
 
+/* SECTION */
+section{
+  scroll-margin-top:80px;
+  padding-top:10px;
+}
+
+/* TITLE */
+h2{
+  text-align:center;
+  margin-top:30px;
+  color:#1565c0;
+}
+
+/* CONTAINER */
 .container{
   display:flex;
   flex-wrap:wrap;
@@ -51,25 +82,25 @@ nav{
   padding:20px;
 }
 
+/* CARD */
 .card{
   width:250px;
   background:white;
-  border-radius:16px;
+  border-radius:14px;
   padding:20px;
   box-shadow:0 10px 25px rgba(0,0,0,0.05);
   transition:0.3s;
+  opacity:0;
+  transform:translateY(15px);
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .card:hover{
   transform:translateY(-5px);
-}
-
-.img{
-  width:100%;
-  height:120px;
-  background:linear-gradient(135deg,#2196f3,#90caf9);
-  border-radius:12px;
-  margin-bottom:10px;
 }
 
 .price{
@@ -114,61 +145,116 @@ footer{
 
 <nav>
   <div class="logo">KEANN MARKET</div>
-  <a href="index.html">Home</a>
 </nav>
 
-<h2 class="title">Produk</h2>
-
+<!-- INPUT -->
 <div class="form">
   <input type="text" id="nama" placeholder="Nama">
   <input type="text" id="catatan" placeholder="Catatan">
 </div>
 
+<!-- MENU -->
+<div class="menu">
+  <button onclick="scrollToSec('wa')">KEBUTUHAN WA</button>
+  <button onclick="scrollToSec('jb')">KEBUTUHAN JB</button>
+  <button onclick="scrollToSec('mobi')">MOBI</button>
+  <button onclick="scrollToSec('drip')">DRIP</button>
+</div>
+
+<!-- WA -->
+<section id="wa">
+<h2>KEBUTUHAN WA</h2>
 <div class="container">
 
   <div class="card">
-    <div class="img"></div>
     <h3>Bot WhatsApp</h3>
     <div class="price">2K - 15K</div>
-
     <select id="bot">
       <option value="Bot 1 Hari - 2K">1 Hari</option>
       <option value="Bot 7 Hari - 5K">7 Hari</option>
       <option value="Bot 30 Hari - 8K">30 Hari</option>
       <option value="Bot Permanen - 15K">Permanen</option>
     </select>
-
-    <button class="btn" onclick="orderSelect('bot')">ORDER</button>
+    <button class="btn" onclick="order('bot')">ORDER</button>
   </div>
 
   <div class="card">
-    <div class="img"></div>
-    <h3>DRIP KEY</h3>
-    <div class="price">25K - 140K</div>
+    <h3>Nokos WA</h3>
+    <div class="price">Ready</div>
+    <button class="btn" onclick="orderManual('Nokos WhatsApp')">ORDER</button>
+  </div>
 
+</div>
+</section>
+
+<!-- JB -->
+<section id="jb">
+<h2>KEBUTUHAN JB</h2>
+<div class="container">
+
+  <div class="card">
+    <h3>Jasapost</h3>
+    <div class="price">FREE</div>
+    <button class="btn" onclick="orderManual('Jasapost FREE')">ORDER</button>
+  </div>
+
+  <div class="card">
+    <h3>QRIS NO KTP</h3>
+    <div class="price">5K</div>
+    <button class="btn" onclick="orderManual('QRIS NO KTP - 5K')">ORDER</button>
+  </div>
+
+  <div class="card">
+    <h3>Web Suntik</h3>
+    <div class="price">Service</div>
+    <button class="btn" onclick="orderManual('Web Suntik')">ORDER</button>
+  </div>
+
+  <div class="card">
+    <h3>Web Nokos</h3>
+    <div class="price">Access</div>
+    <button class="btn" onclick="orderManual('Web Nokos')">ORDER</button>
+  </div>
+
+</div>
+</section>
+
+<!-- MOBI -->
+<section id="mobi">
+<h2>FF MOBILADOR</h2>
+<div class="container">
+
+  <div class="card">
+    <h3>APK MOBI</h3>
+    <div class="price">10K</div>
+    <select id="mobi">
+      <option value="APK MOBI - 10K">APK MOBI</option>
+      <option value="SET MOBI FF - 15K">SET MOBI FF</option>
+    </select>
+    <button class="btn" onclick="order('mobi')">ORDER</button>
+  </div>
+
+</div>
+</section>
+
+<!-- DRIP -->
+<section id="drip">
+<h2>FF MOD MENU</h2>
+<div class="container">
+
+  <div class="card">
+    <h3>LIST KEY DRIP</h3>
+    <div class="price">25K - 140K</div>
     <select id="drip">
       <option value="DRIP 1 Hari - 25K">1 Hari</option>
       <option value="DRIP 7 Hari - 65K">7 Hari</option>
       <option value="DRIP 30 Hari - 140K">30 Hari</option>
     </select>
-
-    <button class="btn" onclick="orderSelect('drip')">ORDER</button>
-  </div>
-
-  <div class="card">
-    <div class="img"></div>
-    <h3>MOBI</h3>
-    <div class="price">10K - 15K</div>
-
-    <select id="mobi">
-      <option value="APK MOBI PERMANEN - 10K">APK MOBI</option>
-      <option value="SET MOBI FF - 15K">SET FF</option>
-    </select>
-
-    <button class="btn" onclick="orderSelect('mobi')">ORDER</button>
+    <button class="btn" onclick="order('drip')">ORDER</button>
   </div>
 
 </div>
+</section>
 
 <footer>
   KEANN MARKET
@@ -177,9 +263,32 @@ footer{
 <script>
 let nomor = "628125895306";
 
-function orderSelect(id){
-  let produk = document.getElementById(id).value;
+/* scroll */
+function scrollToSec(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
 
+/* animasi */
+window.addEventListener("scroll", ()=>{
+  document.querySelectorAll(".card").forEach(c=>{
+    let pos = c.getBoundingClientRect().top;
+    if(pos < window.innerHeight - 80){
+      c.classList.add("show");
+    }
+  });
+});
+
+/* order */
+function order(id){
+  let produk = document.getElementById(id).value;
+  kirim(produk);
+}
+
+function orderManual(produk){
+  kirim(produk);
+}
+
+function kirim(produk){
   let nama = document.getElementById("nama").value;
   let catatan = document.getElementById("catatan").value;
 
