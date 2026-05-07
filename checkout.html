@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - KEANN MARKET</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0a0a0a;
+  color:white;
+}
+
+.container{
+  max-width:450px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+.card{
+  background:#161616;
+  border:1px solid #222;
+  padding:20px;
+  border-radius:14px;
+}
+
+h2{
+  color:#00e676;
+  text-align:center;
+}
+
+p{
+  color:#aaa;
+  text-align:center;
+}
+
+input, select{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:1px solid #333;
+  background:#111;
+  color:white;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(135deg,#00c853,#00e676);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.back{
+  text-align:center;
+  margin-top:10px;
+  color:#666;
+  font-size:12px;
+  cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>CHECKOUT</h2>
+
+    <p id="product"></p>
+
+    <input id="nama" placeholder="Nama kamu">
+    <input id="wa" placeholder="Nomor WhatsApp">
+
+    <select id="pay">
+      <option>QRIS</option>
+      <option>DANA</option>
+      <option>OVO</option>
+      <option>GOPAY</option>
+    </select>
+
+    <button onclick="send()">KIRIM ORDER</button>
+
+    <div class="back" onclick="back()">← Kembali</div>
+
+  </div>
+
+</div>
+
+<script>
+
+let nomor = "628125895306";
+let product = localStorage.getItem("keann_product");
+
+document.getElementById("product").innerText = "Produk: " + product;
+
+function send(){
+
+  let nama = document.getElementById("nama").value;
+  let wa = document.getElementById("wa").value;
+  let pay = document.getElementById("pay").value;
+
+  if(!nama || !wa){
+    alert("Isi data dulu!");
+    return;
+  }
+
+  let msg =
+`KEANN MARKET ORDER
+Produk: ${product}
+Nama: ${nama}
+WA: ${wa}
+Payment: ${pay}`;
+
+  window.open(
+    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
+}
+
+function back(){
+  window.location.href = "produk.html";
+}
+
+</script>
+
+</body>
+</html>
