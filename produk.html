@@ -58,10 +58,17 @@ nav{
   border:1px solid #222;
   padding:20px;
   border-radius:14px;
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#00e67640;
 }
 
 .card h3{
   color:#00e676;
+  margin-bottom:10px;
 }
 
 select{
@@ -97,11 +104,12 @@ select{
 
 <div class="hero">
   <h1>PRODUK</h1>
-  <p>Pilih dan lanjut ke checkout</p>
+  <p>Pilih layanan yang kamu butuhkan</p>
 </div>
 
 <div class="container">
 
+  <!-- BOT -->
   <div class="card">
     <h3>BOT WA</h3>
     <select id="botSelect">
@@ -113,6 +121,7 @@ select{
     <button class="btn" onclick="buy(document.getElementById('botSelect').value)">ORDER</button>
   </div>
 
+  <!-- BUG -->
   <div class="card">
     <h3>BUG WA</h3>
     <select id="bugSelect">
@@ -124,6 +133,7 @@ select{
     <button class="btn" onclick="buy(document.getElementById('bugSelect').value)">ORDER</button>
   </div>
 
+  <!-- DRIP -->
   <div class="card">
     <h3>DRIP</h3>
     <select id="dripSelect">
@@ -135,6 +145,7 @@ select{
     <button class="btn" onclick="buy(document.getElementById('dripSelect').value)">ORDER</button>
   </div>
 
+  <!-- MOBI -->
   <div class="card">
     <h3>MOBI</h3>
     <select id="mobiSelect">
@@ -142,6 +153,19 @@ select{
       <option>SET MOBI - 15K</option>
     </select>
     <button class="btn" onclick="buy(document.getElementById('mobiSelect').value)">ORDER</button>
+  </div>
+
+  <!-- KEBUTUHAN JB (NEW) -->
+  <div class="card">
+    <h3>KEBUTUHAN JB</h3>
+    <select id="jbSelect">
+      <option>2 APK QRIS NO KTP - 5K</option>
+      <option>NOKOS WA - 8K</option>
+      <option>WEB NOKOS - 10K</option>
+      <option>WEB SUNTIK - 10K</option>
+      <option>BUNDLING 2 WEB - 15K</option>
+    </select>
+    <button class="btn" onclick="buy(document.getElementById('jbSelect').value)">ORDER</button>
   </div>
 
 </div>
