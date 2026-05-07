@@ -7,6 +7,7 @@
 <title>KEANN MARKET</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -20,27 +21,60 @@ body{
   overflow:hidden;
 }
 
-/* BACKGROUND GLOW */
-.glow{
-  position:absolute;
-  width:400px;
-  height:400px;
-  background:#00e67620;
-  border-radius:50%;
-  filter:blur(120px);
-  top:-100px;
-  left:-100px;
+/* LOADING SCREEN */
+#loader{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:#0a0a0a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  transition:1s;
 }
 
-.glow2{
+.loader-text{
+  color:#00e676;
+  font-size:28px;
+  font-weight:bold;
+  letter-spacing:3px;
+  animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+  0%{opacity:0.4;}
+  50%{opacity:1;}
+  100%{opacity:0.4;}
+}
+
+/* PARTICLES */
+.particles{
   position:absolute;
-  width:300px;
-  height:300px;
-  background:#00c85315;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  z-index:1;
+}
+
+.particles span{
+  position:absolute;
+  display:block;
+  width:4px;
+  height:4px;
+  background:#00e676;
   border-radius:50%;
-  filter:blur(120px);
-  bottom:-100px;
-  right:-100px;
+  animation:animate 15s linear infinite;
+  opacity:0.5;
+}
+
+@keyframes animate{
+  0%{
+    transform:translateY(100vh) scale(0);
+  }
+  100%{
+    transform:translateY(-10vh) scale(1);
+  }
 }
 
 /* MAIN */
@@ -54,6 +88,18 @@ body{
   position:relative;
   z-index:2;
   padding:20px;
+  animation:fade 1.5s ease;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .content{
@@ -86,10 +132,12 @@ body{
   color:white;
   background:linear-gradient(135deg,#00c853,#00e676);
   transition:0.25s;
+  box-shadow:0 0 20px #00e67650;
 }
 
 .btn:hover{
   transform:scale(1.05);
+  box-shadow:0 0 30px #00e67680;
 }
 
 /* MOBILE */
@@ -109,14 +157,30 @@ body{
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="glow"></div>
-<div class="glow2"></div>
+<!-- LOADING -->
+<div id="loader">
+  <div class="loader-text">KEANN MARKET</div>
+</div>
 
+<!-- PARTICLES -->
+<div class="particles">
+  <span style="left:10%; animation-duration:12s;"></span>
+  <span style="left:20%; animation-duration:18s;"></span>
+  <span style="left:35%; animation-duration:10s;"></span>
+  <span style="left:50%; animation-duration:15s;"></span>
+  <span style="left:65%; animation-duration:20s;"></span>
+  <span style="left:75%; animation-duration:13s;"></span>
+  <span style="left:85%; animation-duration:17s;"></span>
+  <span style="left:95%; animation-duration:11s;"></span>
+</div>
+
+<!-- MAIN -->
 <section class="main">
 
   <div class="content">
@@ -125,8 +189,7 @@ body{
 
     <p>
       Menyediakan berbagai kebutuhan digital
-      dengan proses cepat, harga terjangkau,
-      dan pelayanan terbaik.
+      dengan proses cepat, aman, dan harga terjangkau.
     </p>
 
     <a href="produk.html" class="btn">
@@ -136,6 +199,22 @@ body{
   </div>
 
 </section>
+
+<script>
+
+/* LOADING SCREEN */
+window.addEventListener("load", () => {
+
+  const loader = document.getElementById("loader");
+
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.visibility = "hidden";
+  }, 1200);
+
+});
+
+</script>
 
 </body>
 </html>
