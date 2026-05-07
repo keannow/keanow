@@ -19,23 +19,21 @@ body{
   color:white;
 }
 
-/* NAV */
 nav{
-  padding:18px 25px;
+  padding:18px;
   background:#111;
   border-bottom:1px solid #222;
 }
 
 .logo{
+  color:#00e676;
   font-weight:bold;
   letter-spacing:2px;
-  color:#00e676;
 }
 
-/* HERO */
 .hero{
   text-align:center;
-  padding:30px 20px;
+  padding:25px;
 }
 
 .hero h1{
@@ -46,7 +44,6 @@ nav{
   color:#aaa;
 }
 
-/* CONTAINER */
 .container{
   display:flex;
   flex-wrap:wrap;
@@ -55,23 +52,18 @@ nav{
   padding:20px;
 }
 
-/* CARD */
 .card{
   width:240px;
   background:#161616;
+  border:1px solid #222;
   padding:20px;
   border-radius:14px;
-  border:1px solid #222;
-  transition:0.25s;
 }
 
-.card:hover{
-  transform:translateY(-5px);
-  background:#1f1f1f;
-  border-color:#00e67630;
+.card h3{
+  color:#00e676;
 }
 
-/* SELECT */
 select{
   width:100%;
   padding:10px;
@@ -82,7 +74,6 @@ select{
   border:1px solid #333;
 }
 
-/* BUTTON */
 .btn{
   width:100%;
   padding:10px;
@@ -93,21 +84,6 @@ select{
   color:white;
   font-weight:bold;
   cursor:pointer;
-  transition:0.2s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  color:#666;
-  font-size:12px;
-  border-top:1px solid #222;
-  margin-top:30px;
 }
 
 </style>
@@ -121,115 +97,60 @@ footer{
 
 <div class="hero">
   <h1>PRODUK</h1>
-  <p>Pilih layanan yang kamu butuhkan</p>
+  <p>Pilih dan lanjut ke checkout</p>
 </div>
 
 <div class="container">
 
-  <!-- BOT -->
   <div class="card">
-    <h3>Bot WhatsApp</h3>
+    <h3>BOT WA</h3>
     <select id="botSelect">
-      <option value="Bot WA 1 Hari - 2K">1 Hari - 2K</option>
-      <option value="Bot WA 7 Hari - 5K">7 Hari - 5K</option>
-      <option value="Bot WA 30 Hari - 8K">30 Hari - 8K</option>
-      <option value="Bot WA Permanen - 15K">Permanen - 15K</option>
+      <option>Bot 1 Hari - 2K</option>
+      <option>Bot 7 Hari - 5K</option>
+      <option>Bot 30 Hari - 8K</option>
+      <option>Bot Permanent - 15K</option>
     </select>
-    <button class="btn" onclick="orderBot()">ORDER</button>
+    <button class="btn" onclick="buy(document.getElementById('botSelect').value)">ORDER</button>
   </div>
 
-  <!-- BUG -->
   <div class="card">
-    <h3>Bug WhatsApp</h3>
+    <h3>BUG WA</h3>
     <select id="bugSelect">
-      <option value="JASA BUG - 5K">JASA BUG - 5K</option>
-      <option value="MURBUG - 10K">MURBUG - 10K</option>
-      <option value="ADMIN BUG - 25K">ADMIN BUG - 25K</option>
-      <option value="OWN BUG - 40K">OWN BUG - 40K</option>
-      <option value="SEWA BOT 1 BULAN - 55K">SEWA BOT 1 BULAN - 55K</option>
+      <option>Jasa Bug - 5K</option>
+      <option>MurBug - 10K</option>
+      <option>Admin Bug - 25K</option>
+      <option>Own Bug - 40K</option>
     </select>
-    <button class="btn" onclick="orderBug()">ORDER</button>
+    <button class="btn" onclick="buy(document.getElementById('bugSelect').value)">ORDER</button>
   </div>
 
-  <!-- DRIP -->
   <div class="card">
-    <h3>DRIP CLIENT</h3>
+    <h3>DRIP</h3>
     <select id="dripSelect">
-      <option value="DRIP 1 Hari - 20K">1 Hari - 20K</option>
-      <option value="DRIP 3 Hari - 40K">3 Hari - 40K</option>
-      <option value="DRIP 7 Hari - 65K">7 Hari - 65K</option>
-      <option value="DRIP 15 Hari -90K">15 Hari - 90K</option>
-      <option value="DRIP 30 Hari - 140K">30 Hari - 140K</option>
+      <option>1 Hari - 20K</option>
+      <option>3 Hari - 40K</option>
+      <option>7 Hari - 65K</option>
+      <option>30 Hari - 140K</option>
     </select>
-    <button class="btn" onclick="orderDrip()">ORDER</button>
+    <button class="btn" onclick="buy(document.getElementById('dripSelect').value)">ORDER</button>
   </div>
 
-  <!-- MOBI -->
   <div class="card">
     <h3>MOBI</h3>
     <select id="mobiSelect">
-      <option value="APK MOBI - 10K">APK MOBI - 10K</option>
-      <option value="SET MOBI FF - 15K">SET MOBI FF - 15K</option>
+      <option>APK MOBI - 10K</option>
+      <option>SET MOBI - 15K</option>
     </select>
-    <button class="btn" onclick="orderMobi()">ORDER</button>
-  </div>
-
-  <!-- OTHER -->
-  <div class="card">
-    <h3>QRIS NO KTP</h3>
-    <button class="btn" onclick="order('QRIS NO KTP - 5K')">ORDER</button>
-  </div>
-
-  <div class="card">
-    <h3>NOKOS WA</h3>
-    <button class="btn" onclick="order('Nokos WhatsApp')">ORDER</button>
-  </div>
-
-  <div class="card">
-    <h3>WEB SUNTIK</h3>
-    <button class="btn" onclick="order('Web Suntik')">ORDER</button>
-  </div>
-
-  <div class="card">
-    <h3>WEB NOKOS</h3>
-    <button class="btn" onclick="order('Web Nokos')">ORDER</button>
+    <button class="btn" onclick="buy(document.getElementById('mobiSelect').value)">ORDER</button>
   </div>
 
 </div>
 
-<footer>© KEANN MARKET</footer>
-
 <script>
 
-let nomor = "628125895306";
-
-/* MAIN ORDER */
-function order(product){
-  let pesan =
-`WOI KEAN GUA ORDER
-Produk: ${product}`;
-
-  window.open(
-    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan),
-    "_blank"
-  );
-}
-
-/* FUNCTIONS */
-function orderBot(){
-  order(document.getElementById("botSelect").value);
-}
-
-function orderBug(){
-  order(document.getElementById("bugSelect").value);
-}
-
-function orderDrip(){
-  order(document.getElementById("dripSelect").value);
-}
-
-function orderMobi(){
-  order(document.getElementById("mobiSelect").value);
+function buy(product){
+  localStorage.setItem("keann_product", product);
+  window.location.href = "checkout.html";
 }
 
 </script>
