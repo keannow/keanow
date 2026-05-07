@@ -17,17 +17,13 @@
 body{
   background:#0a0a0a;
   color:white;
-  overflow-x:hidden;
 }
 
-/* HEADER */
+/* NAV */
 nav{
   padding:18px 25px;
   background:#111;
   border-bottom:1px solid #222;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
 }
 
 .logo{
@@ -39,24 +35,15 @@ nav{
 /* HERO */
 .hero{
   text-align:center;
-  padding:40px 20px 20px;
-  animation:fade 1s ease;
+  padding:30px 20px;
 }
 
 .hero h1{
   color:#00e676;
-  font-size:40px;
-  margin-bottom:10px;
 }
 
 .hero p{
   color:#aaa;
-}
-
-/* FADE */
-@keyframes fade{
-  from{opacity:0; transform:translateY(15px);}
-  to{opacity:1; transform:translateY(0);}
 }
 
 /* CONTAINER */
@@ -64,46 +51,24 @@ nav{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:18px;
-  padding:30px 20px;
+  gap:15px;
+  padding:20px;
 }
 
 /* CARD */
 .card{
-  width:250px;
+  width:240px;
   background:#161616;
-  border:1px solid #222;
-  border-radius:16px;
   padding:20px;
-  transition:0.3s;
-  position:relative;
-  overflow:hidden;
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  background:radial-gradient(circle at top,#00e67610,#0000);
-  opacity:0;
-  transition:0.3s;
-}
-
-.card:hover::before{
-  opacity:1;
+  border-radius:14px;
+  border:1px solid #222;
+  transition:0.25s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
-  border-color:#00e67640;
-}
-
-.card h3{
-  color:#00e676;
-  margin-bottom:10px;
+  transform:translateY(-5px);
+  background:#1f1f1f;
+  border-color:#00e67630;
 }
 
 /* SELECT */
@@ -115,33 +80,30 @@ select{
   background:#111;
   color:white;
   border:1px solid #333;
-  outline:none;
 }
 
 /* BUTTON */
 .btn{
   width:100%;
   padding:10px;
-  margin-top:12px;
+  margin-top:10px;
   border:none;
   border-radius:10px;
   background:linear-gradient(135deg,#00c853,#00e676);
   color:white;
   font-weight:bold;
   cursor:pointer;
-  transition:0.25s;
-  box-shadow:0 0 15px #00e67620;
+  transition:0.2s;
 }
 
 .btn:hover{
   transform:scale(1.05);
-  box-shadow:0 0 25px #00e67640;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:25px;
+  padding:20px;
   color:#666;
   font-size:12px;
   border-top:1px solid #222;
@@ -159,14 +121,14 @@ footer{
 
 <div class="hero">
   <h1>PRODUK</h1>
-  <p>Pilih layanan digital yang kamu butuhkan</p>
+  <p>Pilih layanan yang kamu butuhkan</p>
 </div>
 
 <div class="container">
 
   <!-- BOT -->
   <div class="card">
-    <h3>BOT WHATSAPP</h3>
+    <h3>Bot WhatsApp</h3>
     <select id="botSelect">
       <option value="Bot WA 1 Hari - 2K">1 Hari - 2K</option>
       <option value="Bot WA 7 Hari - 5K">7 Hari - 5K</option>
@@ -178,7 +140,7 @@ footer{
 
   <!-- BUG -->
   <div class="card">
-    <h3>BUG WHATSAPP</h3>
+    <h3>Bug WhatsApp</h3>
     <select id="bugSelect">
       <option value="JASA BUG - 5K">JASA BUG - 5K</option>
       <option value="MURBUG - 10K">MURBUG - 10K</option>
@@ -206,12 +168,12 @@ footer{
     <h3>MOBI</h3>
     <select id="mobiSelect">
       <option value="APK MOBI - 10K">APK MOBI - 10K</option>
-      <option value="SET MOBI FF - 15K">SET MOBI - 15K</option>
+      <option value="SET MOBI FF - 15K">SET MOBI FF - 15K</option>
     </select>
     <button class="btn" onclick="orderMobi()">ORDER</button>
   </div>
 
-  <!-- SIMPLE ITEM -->
+  <!-- OTHER -->
   <div class="card">
     <h3>QRIS NO KTP</h3>
     <button class="btn" onclick="order('QRIS NO KTP - 5K')">ORDER</button>
@@ -237,13 +199,22 @@ footer{
 <footer>© KEANN MARKET</footer>
 
 <script>
+
 let nomor = "628125895306";
 
+/* MAIN ORDER */
 function order(product){
-  let pesan = `KEANN MARKET ORDER\nProduk: ${product}`;
-  window.open("https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan));
+  let pesan =
+`KEANN MARKET ORDER
+Produk: ${product}`;
+
+  window.open(
+    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan),
+    "_blank"
+  );
 }
 
+/* FUNCTIONS */
 function orderBot(){
   order(document.getElementById("botSelect").value);
 }
@@ -259,6 +230,7 @@ function orderDrip(){
 function orderMobi(){
   order(document.getElementById("mobiSelect").value);
 }
+
 </script>
 
 </body>
